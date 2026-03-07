@@ -1,0 +1,145 @@
+/* ============================================
+   SHAMBA NETWORK — Animations & Keyframes
+   ============================================ */
+
+/* === Floating Orb Animation === */
+@keyframes float-orb {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -20px) scale(1.05); }
+  50% { transform: translate(-20px, 20px) scale(0.95); }
+  75% { transform: translate(15px, 10px) scale(1.02); }
+}
+
+/* === Fade In === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Fade In Up === */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Fade In Scale === */
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* === Scroll Left (media ticker) === */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* === Pulse Dot (map markers) === */
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.8; }
+}
+
+/* === Pulse Ring (map markers) === */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.3; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* === Soft Bounce (scroll indicator) === */
+@keyframes bounce-soft {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* === Gradient Shift (backgrounds) === */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === Glow Pulse === */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(108, 58, 237, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(108, 58, 237, 0.5); }
+}
+
+/* === Spin Slow === */
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* === Network Pulse (hero visualization) === */
+@keyframes networkPulse {
+  0%, 100% { opacity: 0.3; r: 3; }
+  50% { opacity: 0.8; r: 5; }
+}
+
+@keyframes networkLine {
+  0%, 100% { stroke-opacity: 0.1; }
+  50% { stroke-opacity: 0.4; }
+}
+
+/* === Stagger Animation Delays === */
+.stagger-1 { transition-delay: 0.1s; }
+.stagger-2 { transition-delay: 0.2s; }
+.stagger-3 { transition-delay: 0.3s; }
+.stagger-4 { transition-delay: 0.4s; }
+.stagger-5 { transition-delay: 0.5s; }
+.stagger-6 { transition-delay: 0.6s; }
+
+/* === Node Network SVG Animation === */
+.network-svg .node-dot {
+  animation: networkPulse 3s ease-in-out infinite;
+}
+
+.network-svg .node-dot:nth-child(2) { animation-delay: 0.5s; }
+.network-svg .node-dot:nth-child(3) { animation-delay: 1s; }
+.network-svg .node-dot:nth-child(4) { animation-delay: 1.5s; }
+.network-svg .node-dot:nth-child(5) { animation-delay: 2s; }
+.network-svg .node-dot:nth-child(6) { animation-delay: 2.5s; }
+
+.network-svg .node-line {
+  animation: networkLine 4s ease-in-out infinite;
+}
+
+.network-svg .node-line:nth-child(2) { animation-delay: 0.7s; }
+.network-svg .node-line:nth-child(3) { animation-delay: 1.4s; }
+.network-svg .node-line:nth-child(4) { animation-delay: 2.1s; }
+
+/* === Animated Gradient Background === */
+.animated-gradient-bg {
+  background: linear-gradient(-45deg, #0F0B2E, #1E1B4B, #2D1B69, #0F0B2E);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* === Donut Chart Segments === */
+@keyframes donutFill {
+  from { stroke-dashoffset: var(--circumference); }
+  to { stroke-dashoffset: var(--offset); }
+}
+
+/* === Reduced Motion === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal, .reveal-left, .reveal-right {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-orb {
+    animation: none;
+  }
+
+  .media-scroll-inner {
+    animation: none;
+  }
+}

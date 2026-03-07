@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shamba Network — The Decentralized Climate Data Oracle</title>
+  <meta name="description" content="Shamba Network is a decentralized climate data oracle that makes Earth observation data verifiable, tamper-proof, and accessible on-chain. Empowering land stewards through impact credits, climate insurance, and regenerative finance.">
+  <meta name="keywords" content="climate data oracle, decentralized oracle, dMRV, carbon credits, parametric insurance, Web3, blockchain, satellite data">
+  <meta property="og:title" content="Shamba Network — The Decentralized Climate Data Oracle">
+  <meta property="og:description" content="Verifiable Earth observation data for a regenerative economy. Decentralized. Open source. Community-governed.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="images/shamba-logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@shambanetwork">
+  <link rel="icon" type="image/png" href="images/shamba-logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/shamba-logo.png" alt="Shamba Network" width="140" height="40">
+      </a>
+      <div class="nav-links">
+        <a href="technology.html">Technology</a>
+        <a href="tokenomics.html">Tokenomics</a>
+        <a href="impact.html">Impact</a>
+        <a href="about.html">About</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+        <a href="community.html#get-started" class="nav-cta">Get Started</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+
+    <div class="hero-content">
+      <span class="section-label">Decentralized Climate Data Oracle</span>
+      <h1>Verifiable Earth Data for a <span class="text-gradient">Regenerative Economy</span></h1>
+      <p>Shamba Network makes satellite data tamper-proof and accessible on-chain — powering carbon credits, parametric insurance, and climate finance through a decentralized oracle network anyone can join.</p>
+      <div class="btn-group">
+        <a href="#whitepaper" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Read the Whitepaper
+        </a>
+        <a href="community.html#get-started" class="btn btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Run a Node
+        </a>
+      </div>
+
+      <!-- Network Visualization -->
+      <div style="margin-top: 3rem;">
+        <svg class="network-svg" width="400" height="200" viewBox="0 0 400 200" style="max-width:100%;height:auto;">
+          <!-- Connection lines -->
+          <line class="node-line" x1="60" y1="40" x2="200" y2="100" stroke="#6C3AED" stroke-width="1" stroke-opacity="0.2"/>
+          <line class="node-line" x1="340" y1="40" x2="200" y2="100" stroke="#6C3AED" stroke-width="1" stroke-opacity="0.2"/>
+          <line class="node-line" x1="80" y1="160" x2="200" y2="100" stroke="#10B981" stroke-width="1" stroke-opacity="0.2"/>
+          <line class="node-line" x1="320" y1="160" x2="200" y2="100" stroke="#10B981" stroke-width="1" stroke-opacity="0.2"/>
+          <line class="node-line" x1="60" y1="40" x2="340" y2="40" stroke="#8B5CF6" stroke-width="0.5" stroke-opacity="0.1"/>
+          <line class="node-line" x1="80" y1="160" x2="320" y2="160" stroke="#059669" stroke-width="0.5" stroke-opacity="0.1"/>
+          <line class="node-line" x1="60" y1="40" x2="80" y2="160" stroke="#8B5CF6" stroke-width="0.5" stroke-opacity="0.1"/>
+          <line class="node-line" x1="340" y1="40" x2="320" y2="160" stroke="#8B5CF6" stroke-width="0.5" stroke-opacity="0.1"/>
+          <!-- Nodes -->
+          <circle class="node-dot" cx="60" cy="40" r="4" fill="#8B5CF6"/>
+          <circle class="node-dot" cx="200" cy="30" r="3" fill="#C4B5FD"/>
+          <circle class="node-dot" cx="340" cy="40" r="4" fill="#8B5CF6"/>
+          <circle class="node-dot" cx="80" cy="160" r="4" fill="#10B981"/>
+          <circle class="node-dot" cx="320" cy="160" r="4" fill="#10B981"/>
+          <!-- Center node (aggregation) -->
+          <circle cx="200" cy="100" r="8" fill="#6C3AED" opacity="0.8"/>
+          <circle cx="200" cy="100" r="14" fill="none" stroke="#6C3AED" stroke-width="1" opacity="0.3">
+            <animate attributeName="r" values="14;20;14" dur="3s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <!-- Labels -->
+          <text x="200" y="105" text-anchor="middle" fill="#F8FAFC" font-size="8" font-family="Inter, sans-serif" font-weight="600">AGG</text>
+          <text x="60" y="28" text-anchor="middle" fill="#C4B5FD" font-size="7" font-family="JetBrains Mono, monospace">Node 1</text>
+          <text x="340" y="28" text-anchor="middle" fill="#C4B5FD" font-size="7" font-family="JetBrains Mono, monospace">Node 2</text>
+          <text x="80" y="180" text-anchor="middle" fill="#10B981" font-size="7" font-family="JetBrains Mono, monospace">Node 3</text>
+          <text x="320" y="180" text-anchor="middle" fill="#10B981" font-size="7" font-family="JetBrains Mono, monospace">Node n</text>
+        </svg>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span>Scroll to explore</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </div>
+  </section>
+
+  <!-- ===== TRUST BAR ===== -->
+  <div class="trust-bar">
+    <div class="container">
+      <p class="trust-bar-label">Trusted by leading organizations</p>
+      <div class="trust-logos">
+        <span class="trust-logo">Chainlink</span>
+        <span class="trust-logo">Mercy Corps</span>
+        <span class="trust-logo">Outlier Ventures</span>
+        <span class="trust-logo">Filecoin</span>
+        <span class="trust-logo">Ripple</span>
+        <span class="trust-logo">Regen Network</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== THE PROBLEM ===== -->
+  <section class="section" id="problem">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">The Problem</span>
+        <h2>Trillions in Climate Finance, <span class="text-gradient">Locked Behind Walls</span></h2>
+        <p>Critical climate data exists but can't reach the applications that need it most. The result: broken markets, unprotected farmers, and manipulated oracles.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- Card 1 -->
+        <div class="glass-card reveal stagger-1">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <h4>Carbon Market Bottleneck</h4>
+          <div class="stat-number" data-count="50" data-prefix="$" data-suffix="/ha">$0</div>
+          <p style="margin-top:0.75rem;">Manual field audits cost $30-50 per hectare, locking 33 million smallholder farmers out of carbon credit markets worth $15B+ by 2035.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card reveal stagger-2">
+          <div class="icon-circle icon-circle-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <h4>Insurance Gap</h4>
+          <div class="stat-number" data-count="97" data-suffix="%">0%</div>
+          <p style="margin-top:0.75rem;">97% of sub-Saharan African farmers remain uninsured. A $200 billion protection gap leaves the most vulnerable exposed to climate shocks.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card reveal stagger-3">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Oracle Manipulation</h4>
+          <div class="stat-number" data-count="8.8" data-prefix="$" data-suffix="B">$0</div>
+          <p style="margin-top:0.75rem;">$8.8 billion lost to oracle manipulation attacks in DeFi. Centralized data feeds are single points of failure that undermine trust.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== THE SOLUTION ===== -->
+  <section class="section animated-gradient-bg" id="solution">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">The Solution</span>
+        <h2>How <span class="text-gradient">Shamba</span> Works</h2>
+        <p>A decentralized network of oracle nodes that independently verify climate data — no single point of failure, no central authority.</p>
+      </div>
+
+      <div class="steps reveal">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="glass-card">
+            <h4>Fetch Satellite Data</h4>
+            <p>Oracle nodes independently fetch data from NASA, ESA, NOAA, and JAXA — 30+ public satellite databases covering vegetation, rainfall, soil carbon, and fire risk.</p>
+            <div style="margin-top:1rem; display:flex; gap:0.5rem; justify-content:center; flex-wrap:wrap;">
+              <span class="badge badge-purple">NASA</span>
+              <span class="badge badge-purple">ESA</span>
+              <span class="badge badge-green">NOAA</span>
+              <span class="badge badge-green">JAXA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="glass-card">
+            <h4>Compute & Verify</h4>
+            <p>Each node independently computes ecological indicators — NDVI, rainfall, soil carbon — using the same open-source analysis pipeline. An aggregation smart contract checks that n nodes agree.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="glass-card">
+            <h4>Deliver On-Chain</h4>
+            <p>Consensus-verified data is delivered to smart contracts on Arbitrum, Avalanche, Ethereum, Optimism, and Polygon — powering insurance payouts, carbon credits, and climate finance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== USE CASES ===== -->
+  <section class="section" id="use-cases">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Use Cases</span>
+        <h2>Powering the <span class="text-gradient">Climate Economy</span></h2>
+        <p>Shamba's verified climate data enables a new generation of decentralized applications.</p>
+      </div>
+
+      <div class="tabs reveal">
+        <button class="tab-btn active" data-tab="tab-insurance">Parametric Insurance</button>
+        <button class="tab-btn" data-tab="tab-carbon">Carbon Credits</button>
+        <button class="tab-btn" data-tab="tab-finance">Climate Finance</button>
+        <button class="tab-btn" data-tab="tab-prediction">Prediction Markets</button>
+        <button class="tab-btn" data-tab="tab-donations">Conditional Donations</button>
+      </div>
+
+      <div id="tab-insurance" class="tab-panel active">
+        <div class="glass-card" style="max-width:700px;margin:0 auto;">
+          <div class="icon-circle icon-circle-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3>Parametric Insurance</h3>
+          <p style="margin-top:1rem;">Automated insurance payouts triggered by satellite-verified climate events. When rainfall exceeds thresholds or vegetation drops to critical levels, smart contracts pay out instantly — no claims filing, no waiting, no middlemen. Currently protecting 3,000+ farmers across East Africa with 40% lower premiums and 90% faster settlement.</p>
+          <a href="impact.html" class="btn btn-sm btn-secondary" style="margin-top:1.5rem;">View Case Studies</a>
+        </div>
+      </div>
+
+      <div id="tab-carbon" class="tab-panel">
+        <div class="glass-card" style="max-width:700px;margin:0 auto;">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h3>Carbon Credits & Impact Credits</h3>
+          <p style="margin-top:1rem;">Report, validate, tokenize, and monetize ecological impact. Shamba's dMRV pipeline enables smallholder farmers to create carbon credits from sustainable practices — verified by satellite, issued on-chain, tradeable on carbon marketplaces. Eliminates the $30-50/hectare cost of manual field audits.</p>
+          <a href="impact.html" class="btn btn-sm btn-secondary" style="margin-top:1.5rem;">View Case Studies</a>
+        </div>
+      </div>
+
+      <div id="tab-finance" class="tab-panel">
+        <div class="glass-card" style="max-width:700px;margin:0 auto;">
+          <div class="icon-circle icon-circle-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3>Climate Finance & Green Bonds</h3>
+          <p style="margin-top:1rem;">Verifiable ecological data for green bonds, climate-linked loans, and impact investing. Lenders can automatically adjust terms based on satellite-verified environmental outcomes. Enables climate finance to flow directly to the communities creating ecological value.</p>
+          <a href="technology.html" class="btn btn-sm btn-secondary" style="margin-top:1.5rem;">Learn More</a>
+        </div>
+      </div>
+
+      <div id="tab-prediction" class="tab-panel">
+        <div class="glass-card" style="max-width:700px;margin:0 auto;">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3>Prediction Markets</h3>
+          <p style="margin-top:1rem;">Prediction markets grew to $63.5 billion in 2025 trading volume — and they need reliable, decentralized data feeds for climate events, crop yields, and environmental outcomes. Shamba provides tamper-proof resolution data that no single party can manipulate.</p>
+          <a href="technology.html" class="btn btn-sm btn-secondary" style="margin-top:1.5rem;">Learn More</a>
+        </div>
+      </div>
+
+      <div id="tab-donations" class="tab-panel">
+        <div class="glass-card" style="max-width:700px;margin:0 auto;">
+          <div class="icon-circle icon-circle-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3>Conditional Donations</h3>
+          <p style="margin-top:1rem;">Donor funds held in smart contracts and released only when satellite data confirms communities are affected by climate events. Proven in the DIVA Donate pilot — USDT disbursed to drought-affected pastoralists when pasture conditions hit distress levels. Transparent, accountable, automated.</p>
+          <a href="impact.html" class="btn btn-sm btn-secondary" style="margin-top:1.5rem;">View Case Studies</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TRACTION & IMPACT ===== -->
+  <section class="section" id="traction" style="background: var(--gradient-mesh);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Traction & Impact</span>
+        <h2>Proven in the <span class="text-gradient">Field</span></h2>
+        <p>Four years of real-world deployment across East Africa. Real farmers. Real insurance payouts. Real impact.</p>
+      </div>
+
+      <div class="stat-grid reveal">
+        <div class="stat-card glass-card">
+          <div class="stat-number" data-count="3000" data-suffix="+">0</div>
+          <div class="stat-label">Farmers Reached</div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-number" data-count="4" data-suffix="+">0</div>
+          <div class="stat-label">Years of Field Testing</div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-number" data-count="75" data-suffix="%">0</div>
+          <div class="stat-label">Cost Reduction</div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-number" data-count="90" data-suffix="%">0</div>
+          <div class="stat-label">Faster Settlement</div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-number" data-count="40" data-suffix="%">0</div>
+          <div class="stat-label">Lower Insurance Costs</div>
+        </div>
+        <div class="stat-card glass-card">
+          <div class="stat-number" data-count="5">0</div>
+          <div class="stat-label">Blockchain Networks</div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:2rem;" class="reveal">
+        <a href="impact.html" class="btn btn-secondary">Explore Our Impact</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ECOSYSTEM & PARTNERS ===== -->
+  <section class="section" id="partners">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Ecosystem</span>
+        <h2>Partners & <span class="text-gradient">Integrations</span></h2>
+      </div>
+
+      <div class="partner-grid reveal">
+        <div class="glass-card partner-card"><span>Chainlink</span></div>
+        <div class="glass-card partner-card"><span>Mercy Corps Ventures</span></div>
+        <div class="glass-card partner-card"><span>Fortune Credit</span></div>
+        <div class="glass-card partner-card"><span>DIVA Protocol</span></div>
+        <div class="glass-card partner-card"><span>Regen Network</span></div>
+        <div class="glass-card partner-card"><span>Ripple</span></div>
+        <div class="glass-card partner-card"><span>BlockBima</span></div>
+        <div class="glass-card partner-card"><span>Filecoin / IPFS</span></div>
+        <div class="glass-card partner-card"><span>Thallo</span></div>
+        <div class="glass-card partner-card"><span>dClimate</span></div>
+        <div class="glass-card partner-card"><span>Open Forest Protocol</span></div>
+        <div class="glass-card partner-card"><span>Outlier Ventures</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MEDIA & RECOGNITION ===== -->
+  <section class="section" id="media">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Recognition</span>
+        <h2>Featured <span class="text-gradient">In</span></h2>
+      </div>
+
+      <!-- Media ticker -->
+      <div class="media-scroll reveal" style="margin-bottom:3rem;">
+        <div class="media-scroll-inner">
+          <span class="media-logo">CoinDesk</span>
+          <span class="media-logo">Yahoo Finance</span>
+          <span class="media-logo">TechCabal</span>
+          <span class="media-logo">InsurTech Digital</span>
+          <span class="media-logo">Carbon Pulse</span>
+          <span class="media-logo">AgFunder News</span>
+          <span class="media-logo">Blockchain Reporter</span>
+          <span class="media-logo">BSC News</span>
+          <!-- Duplicate for seamless scroll -->
+          <span class="media-logo">CoinDesk</span>
+          <span class="media-logo">Yahoo Finance</span>
+          <span class="media-logo">TechCabal</span>
+          <span class="media-logo">InsurTech Digital</span>
+          <span class="media-logo">Carbon Pulse</span>
+          <span class="media-logo">AgFunder News</span>
+          <span class="media-logo">Blockchain Reporter</span>
+          <span class="media-logo">BSC News</span>
+        </div>
+      </div>
+
+      <!-- Featured articles -->
+      <div class="grid-3 reveal">
+        <a href="https://www.coindesk.com/consensus-magazine/2023/04/17/shamba-network-ecological-data-oracle" target="_blank" rel="noopener" class="glass-card article-card">
+          <div class="article-source">CoinDesk</div>
+          <span class="badge badge-green" style="margin-bottom:0.75rem;">Projects to Watch 2023</span>
+          <h4>Shamba Network Sows the Future of Sustainable Agriculture in Africa</h4>
+          <span class="article-link">Read article &rarr;</span>
+        </a>
+
+        <a href="https://techcabal.com/2023/01/18/kennedy-ngangas-blockchain-of-trust-for-kenyas-smallholder-farmers/" target="_blank" rel="noopener" class="glass-card article-card">
+          <div class="article-source">TechCabal</div>
+          <h4>Kennedy Ng'ang'a's Blockchain of Trust for Kenya's Smallholder Farmers</h4>
+          <span class="article-link">Read article &rarr;</span>
+        </a>
+
+        <a href="https://insurtechdigital.com/news/blockchain-insurance-tackles-kenyas-climate-credit-crisis" target="_blank" rel="noopener" class="glass-card article-card">
+          <div class="article-source">InsurTech Digital</div>
+          <h4>Blockchain Insurance Tackles Kenya's Climate Credit Crisis</h4>
+          <span class="article-link">Read article &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ROADMAP ===== -->
+  <section class="section" id="roadmap" style="background: var(--gradient-mesh);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Roadmap</span>
+        <h2>Path to <span class="text-gradient">Decentralization</span></h2>
+      </div>
+
+      <div class="timeline reveal">
+        <!-- Phase 1 -->
+        <div class="timeline-item">
+          <div class="timeline-dot active"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-date">Phase 1 — Month 1-3</div>
+            <h4>Design</h4>
+            <p>Token economics design and Oracle Node SDK v1 (alpha). Define staking parameters, reward curves, and slashing conditions.</p>
+            <span class="badge badge-green">Current Phase</span>
+          </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-date">Phase 2 — Month 4-6</div>
+            <h4>Build</h4>
+            <p>Aggregation and staking smart contracts. Oracle Node SDK beta with full satellite data pipeline.</p>
+          </div>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-date">Phase 3 — Month 7-9</div>
+            <h4>Test</h4>
+            <p>Private testnet with 10-30 nodes. Validate consensus mechanism and data accuracy across independent operators.</p>
+          </div>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-date">Phase 4 — Month 10-12</div>
+            <h4>Harden</h4>
+            <p>Public testnet launch. Security review and audit of all smart contracts and SDK components.</p>
+          </div>
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-date">Phase 5 — Month 13-15</div>
+            <h4>Prepare</h4>
+            <p>Mainnet launch preparation. Final security audits, stress testing, and community onboarding.</p>
+          </div>
+        </div>
+
+        <!-- Phase 6 -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="glass-card timeline-content">
+            <div class="timeline-date">Phase 6 — Month 16-18</div>
+            <h4>Launch</h4>
+            <p>Mainnet launch and initial pilot migration. Existing programs transition from centralized to decentralized infrastructure.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="section cta-section" id="cta">
+    <div class="container">
+      <div class="cta-grid reveal">
+        <div class="glass-gradient-border cta-card">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>For Developers</h3>
+          <p>Run a node, build on the oracle, contribute to open-source climate infrastructure.</p>
+          <a href="community.html#get-started" class="btn btn-primary">Run a Node</a>
+        </div>
+
+        <div class="glass-gradient-border cta-card">
+          <div class="icon-circle icon-circle-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3>For Organizations</h3>
+          <p>Partner with us to bring climate data infrastructure to your projects and communities.</p>
+          <a href="contact.html" class="btn btn-green">Partner With Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="images/shamba-logo.png" alt="Shamba Network" width="120" height="35">
+          </a>
+          <p>The decentralized climate data oracle for a regenerative economy.</p>
+          <div class="footer-social">
+            <a href="https://twitter.com/shambanetwork" target="_blank" rel="noopener" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://ke.linkedin.com/company/shambanetwork" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/shamba-network" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://medium.com/@shambanetwork" target="_blank" rel="noopener" aria-label="Medium">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Protocol</h4>
+          <div class="footer-links">
+            <a href="technology.html">Technology</a>
+            <a href="tokenomics.html">Tokenomics</a>
+            <a href="community.html">Community</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <div class="footer-links">
+            <a href="https://docs.shamba.app" target="_blank" rel="noopener">Documentation</a>
+            <a href="https://github.com/shamba-network" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://medium.com/@shambanetwork" target="_blank" rel="noopener">Blog</a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="impact.html">Impact</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Shamba Network. All rights reserved.</span>
+        <span>Built for the planet.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+</body>
+</html>

@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technology — Shamba Network</title>
+  <meta name="description" content="Explore Shamba Network's decentralized oracle architecture: open-source Node SDK, consensus aggregation, satellite data sources, and multi-chain deployment.">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <img src="images/shamba-logo.png" alt="Shamba Network" width="140" height="40">
+      </a>
+      <div class="nav-links">
+        <a href="technology.html" class="active">Technology</a>
+        <a href="tokenomics.html">Tokenomics</a>
+        <a href="impact.html">Impact</a>
+        <a href="about.html">About</a>
+        <a href="community.html">Community</a>
+        <a href="contact.html">Contact</a>
+        <a href="community.html#get-started" class="nav-cta">Get Started</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========== PAGE HEADER ========== -->
+  <header class="page-header">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="page-header-content">
+      <span class="section-label">Technology Deep Dive</span>
+      <h1><span class="text-gradient">Technology</span></h1>
+      <p>A decentralized oracle architecture that makes Earth observation data verifiable, tamper-proof, and accessible on-chain &mdash; powered by an open-source Node SDK anyone can run.</p>
+    </div>
+  </header>
+
+  <!-- ========== ARCHITECTURE SECTION ========== -->
+  <section class="section reveal" id="architecture">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">System Architecture</span>
+        <h2>How the <span class="text-gradient">Oracle Network</span> Works</h2>
+        <p>A four-layer architecture that takes raw satellite imagery from space agencies and delivers consensus-verified climate data to smart contracts.</p>
+      </div>
+
+      <div class="glass-card arch-diagram">
+        <!-- Layer 1: Satellite Data -->
+        <div class="arch-layer" style="flex-wrap: wrap;">
+          <div class="arch-node arch-node-green">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:4px;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <br>Satellite Data Layer
+          </div>
+        </div>
+        <p class="text-center text-muted" style="font-size:0.85rem;margin:0 auto 0.5rem;">NASA (MODIS, Landsat) &middot; ESA (Copernicus Sentinel) &middot; NOAA (Atmospheric) &middot; JAXA (Earth Observation)</p>
+
+        <div class="arch-arrow">&#8595;</div>
+
+        <!-- Layer 2: Oracle Nodes -->
+        <div class="arch-layer" style="flex-wrap: wrap;">
+          <div class="arch-node arch-node-purple">Node 1 (SDK)</div>
+          <div class="arch-node arch-node-purple">Node 2 (SDK)</div>
+          <div class="arch-node arch-node-purple">Node 3 (SDK)</div>
+          <div class="arch-node arch-node-purple" style="border-style:dashed;">Node n (SDK)</div>
+        </div>
+        <p class="text-center text-muted" style="font-size:0.85rem;margin:0 auto 0.5rem;">Independent fetch &rarr; process &rarr; cryptographic sign &rarr; report</p>
+
+        <div class="arch-arrow">&#8595;</div>
+
+        <!-- Layer 3: Smart Contracts -->
+        <div class="arch-layer" style="flex-wrap: wrap;">
+          <div class="arch-node arch-node-green">Aggregation Contract</div>
+          <div class="arch-node arch-node-green">Staking &amp; Slashing</div>
+          <div class="arch-node arch-node-green">Governance Contract</div>
+        </div>
+        <p class="text-center text-muted" style="font-size:0.85rem;margin:0 auto 0.5rem;">Consensus verification &middot; Reward accurate nodes &middot; Slash bad actors</p>
+
+        <div class="arch-arrow">&#8595;</div>
+
+        <!-- Layer 4: Applications -->
+        <div class="arch-layer" style="flex-wrap: wrap;">
+          <div class="arch-node arch-node-purple">Parametric Insurance</div>
+          <div class="arch-node arch-node-purple">Carbon Credits</div>
+          <div class="arch-node arch-node-purple">Prediction Markets</div>
+          <div class="arch-node arch-node-purple">Green Bonds</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ORACLE NODE SDK ========== -->
+  <section class="section reveal" id="sdk">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Oracle Node SDK</span>
+        <h2>Open-Source <span class="text-gradient">Data Pipeline</span></h2>
+        <p>Everything needed to operate a Shamba node &mdash; install and run within minutes on any standard laptop. No specialized hardware required.</p>
+      </div>
+
+      <div class="grid-3">
+        <!-- NDVI -->
+        <div class="glass-card">
+          <div class="icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 2v10l6.5 3.5"/><path d="M17 3l2 2-2 2"/></svg>
+          </div>
+          <h4>NDVI Computation</h4>
+          <p>Calculate the Normalized Difference Vegetation Index for any area of interest using MODIS and Sentinel data, with descriptive statistics (mean, max, min, median, variance).</p>
+        </div>
+
+        <!-- Rainfall -->
+        <div class="glass-card">
+          <div class="icon-circle icon-circle-green">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          </div>
+          <h4>Rainfall Monitoring</h4>
+          <p>Near real-time rainfall analysis enhanced by AI models. Feeds parametric insurance contracts that trigger automatic payouts when thresholds are crossed.</p>
+        </div>
+
+        <!-- Soil Carbon -->
+        <div class="glass-card">
+          <div class="icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 22h20"/><path d="M6.36 17.4 4 17l-2-4 3.5-2.7L7 8l4-3 4 3 1.5 2.3L20 13l-2 4-2.36.4"/><path d="M12 22V10"/></svg>
+          </div>
+          <h4>Soil Carbon Estimation</h4>
+          <p>Estimate soil organic carbon from satellite imagery to enable smallholder farmers to create and sell carbon credits through automated dMRV pipelines.</p>
+        </div>
+
+        <!-- Fire Detection -->
+        <div class="glass-card">
+          <div class="icon-circle icon-circle-green">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+          </div>
+          <h4>Fire Detection</h4>
+          <p>Detect and monitor wildfires using thermal satellite imagery. Developers integrate via the <code>ShambaFireConsumer</code> smart contract for on-chain fire alerts.</p>
+        </div>
+
+        <!-- Land Use Classification -->
+        <div class="glass-card">
+          <div class="icon-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          </div>
+          <h4>Land Use Classification</h4>
+          <p>Classify land cover types to verify sustainable farming practices, track deforestation, and validate environmental impact claims for ecocredit programs.</p>
+        </div>
+
+        <!-- Node Operations -->
+        <div class="glass-card">
+          <div class="icon-circle icon-circle-green">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          </div>
+          <h4>Node Operations &amp; CLI</h4>
+          <p>Automated response to data requests, cryptographic signing of results, staking management, health monitoring, and a CLI for operators. Runs on Linux, macOS, and Windows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DATA SOURCES ========== -->
+  <section class="section reveal" id="data-sources">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Data Sources</span>
+        <h2><span class="text-gradient">30+ Satellite</span> Databases</h2>
+        <p>Every node accesses the same public satellite APIs &mdash; deterministic, reproducible, and independently verifiable by any participant.</p>
+      </div>
+
+      <div class="grid-4">
+        <!-- NASA -->
+        <div class="glass-card" style="text-align:center;">
+          <div class="icon-circle" style="margin:0 auto 1.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/><path d="M8 3.5A17 17 0 0 1 12 2c1.5 0 3 .5 4 1.5"/><path d="M20.5 8A17 17 0 0 1 22 12c0 1.5-.5 3-1.5 4"/><path d="M16 20.5A17 17 0 0 1 12 22c-1.5 0-3-.5-4-1.5"/><path d="M3.5 16A17 17 0 0 1 2 12c0-1.5.5-3 1.5-4"/></svg>
+          </div>
+          <h4>NASA</h4>
+          <p style="margin:0 auto;">MODIS and Landsat satellites providing vegetation indices, land surface temperature, and multispectral imagery with global coverage.</p>
+        </div>
+
+        <!-- ESA -->
+        <div class="glass-card" style="text-align:center;">
+          <div class="icon-circle icon-circle-green" style="margin:0 auto 1.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h4>ESA</h4>
+          <p style="margin:0 auto;">Copernicus Sentinel constellation for high-resolution land monitoring, vegetation health tracking, and environmental change detection across Europe and Africa.</p>
+        </div>
+
+        <!-- NOAA -->
+        <div class="glass-card" style="text-align:center;">
+          <div class="icon-circle" style="margin:0 auto 1.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/></svg>
+          </div>
+          <h4>NOAA</h4>
+          <p style="margin:0 auto;">Atmospheric and weather data feeds providing rainfall measurements, temperature records, and climate monitoring critical for parametric insurance triggers.</p>
+        </div>
+
+        <!-- JAXA -->
+        <div class="glass-card" style="text-align:center;">
+          <div class="icon-circle icon-circle-green" style="margin:0 auto 1.5rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+          </div>
+          <h4>JAXA</h4>
+          <p style="margin:0 auto;">Japan Aerospace Exploration Agency&apos;s Earth observation data providing complementary coverage for vegetation, precipitation, and land surface analysis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONSENSUS & AGGREGATION ========== -->
+  <section class="section reveal" id="consensus">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Consensus Protocol</span>
+        <h2>Consensus &amp; <span class="text-gradient">Aggregation</span></h2>
+        <p>No single node controls the outcome. Manipulation requires compromising multiple independent nodes simultaneously &mdash; making attacks economically irrational.</p>
+      </div>
+
+      <div class="steps" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h4>Random Selection</h4>
+          <p>The protocol randomly selects <strong>n</strong> nodes from the pool of staked operators. No node knows in advance if it will be chosen, preventing coordinated collusion.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h4>Independent Computation</h4>
+          <p>Each selected node independently fetches the same public satellite data (NASA, ESA, NOAA, JAXA), runs the open-source pipeline, and cryptographically signs the result.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h4>Aggregation &amp; Consensus</h4>
+          <p>The aggregation smart contract collects all signed reports. Results must agree within a defined tolerance. The consensus value is delivered to the requesting application.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h4>Rewards &amp; Slashing</h4>
+          <p>Nodes that reported within consensus earn token rewards. Outlier reporters &mdash; whether through error or malice &mdash; have their staked tokens slashed. Accuracy pays; manipulation costs.</p>
+        </div>
+      </div>
+
+      <div class="glass-card" style="margin-top:3rem; padding:2.5rem;">
+        <h4 style="margin-bottom:1rem;">Why Climate Data Is Uniquely Suited to This Model</h4>
+        <div class="grid-2" style="gap:1.5rem;">
+          <div>
+            <h5 style="color:var(--green-accent);margin-bottom:0.5rem;">Public &amp; Deterministic</h5>
+            <p style="font-size:0.95rem;">Every node accesses the same NASA/ESA/NOAA/JAXA APIs. There is no proprietary data to hide behind &mdash; the source data is completely transparent.</p>
+          </div>
+          <div>
+            <h5 style="color:var(--green-accent);margin-bottom:0.5rem;">Reproducible Computation</h5>
+            <p style="font-size:0.95rem;">Given the same inputs and the same open-source pipeline, every honest node produces the same output. Discrepancies signal either bugs or attacks.</p>
+          </div>
+          <div>
+            <h5 style="color:var(--green-accent);margin-bottom:0.5rem;">Well-Defined Tolerance</h5>
+            <p style="font-size:0.95rem;">Small floating-point variations are normal and expected. Large deviations are clearly identifiable, making the consensus threshold straightforward to calibrate.</p>
+          </div>
+          <div>
+            <h5 style="color:var(--green-accent);margin-bottom:0.5rem;">Ground-Truth Validation</h5>
+            <p style="font-size:0.95rem;">Satellite observations can be cross-validated against ground measurements from field sensors and drone data, adding an extra verification layer.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUPPORTED BLOCKCHAINS ========== -->
+  <section class="section reveal" id="blockchains">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Multi-Chain</span>
+        <h2>Supported <span class="text-gradient">Blockchains</span></h2>
+        <p>Shamba delivers verified climate data across five major EVM-compatible networks, meeting developers where they already build.</p>
+      </div>
+
+      <div class="grid-5" style="display:grid; grid-template-columns: repeat(5, 1fr); gap:1.5rem;">
+        <!-- Arbitrum -->
+        <div class="glass-card" style="text-align:center;">
+          <div class="icon-circle" style="margin:0 auto 1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h4 style="font-size:1.1rem;">Arbitrum</h4>
+          <span class="badge badge-green">Live</span>
+        </div>
+
+        <!-- Avalanche -->
+        <div class="glass-card" style="text-align:center;">
+          <div class="icon-circle icon-circle-green" style="margin:0 auto 1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 19h20L12 2z"/></svg>
+          </div>
+          <h4 style="font-size:1.1rem;">Avalanche</h4>
+          <span class="badge badge-green">Live</span>
+        </div>
+
+        <!-- Ethereum -->
+        <div class="glass-card" style="text-align:center;">
+          <div class="icon-circle" style="margin:0 auto 1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l-8 14h16L12 2z"/><path d="M12 22l-8-6h16l-8 6z"/></svg>
+          </div>
+          <h4 style="font-size:1.1rem;">Ethereum</h4>
+          <span class="badge badge-green">Live</span>
+        </div>
+
+        <!-- Optimism -->
+        <div class="glass-card" style="text-align:center;">
+          <div class="icon-circle icon-circle-green" style="margin:0 auto 1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <h4 style="font-size:1.1rem;">Optimism</h4>
+          <span class="badge badge-green">Live</span>
+        </div>
+
+        <!-- Polygon -->
+        <div class="glass-card" style="text-align:center;">
+          <div class="icon-circle" style="margin:0 auto 1rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
+          </div>
+          <h4 style="font-size:1.1rem;">Polygon</h4>
+          <span class="badge badge-green">Live</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CODE SNIPPET ========== -->
+  <section class="section reveal" id="code-example">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Developer Integration</span>
+        <h2>Start Building in <span class="text-gradient">Minutes</span></h2>
+        <p>Import the <code style="color:var(--purple-light);">ShambaGeoConsumer</code> contract from the npm smart-contract-kit and request verified climate data on-chain.</p>
+      </div>
+
+      <div class="grid-2" style="align-items:start;">
+        <div>
+          <div class="code-block">
+            <code><pre>
+<span class="code-comment">// SPDX-License-Identifier: MIT</span>
+<span class="code-keyword">pragma</span> solidity ^0.8.17;
+
+<span class="code-keyword">import</span> <span class="code-string">"@shamba/smart-contract-kit/ShambaGeoConsumer.sol"</span>;
+
+<span class="code-keyword">contract</span> <span class="code-function">ClimateInsurance</span> <span class="code-keyword">is</span> ShambaGeoConsumer {
+
+    <span class="code-keyword">uint256</span> <span class="code-keyword">public</span> latestNDVI;
+    <span class="code-keyword">uint256</span> <span class="code-keyword">public</span> payoutThreshold;
+
+    <span class="code-keyword">constructor</span>(
+        <span class="code-keyword">uint256</span> _threshold
+    ) {
+        payoutThreshold = _threshold;
+    }
+
+    <span class="code-keyword">function</span> <span class="code-function">requestNDVI</span>(
+        <span class="code-keyword">string memory</span> areaOfInterest,
+        <span class="code-keyword">string memory</span> startDate,
+        <span class="code-keyword">string memory</span> endDate
+    ) <span class="code-keyword">public</span> {
+        <span class="code-function">requestGeoData</span>(
+            areaOfInterest,
+            startDate,
+            endDate,
+            <span class="code-string">"ndvi"</span>,
+            <span class="code-string">"mean"</span>
+        );
+    }
+
+    <span class="code-keyword">function</span> <span class="code-function">fulfill</span>(
+        <span class="code-keyword">bytes32</span> requestId,
+        <span class="code-keyword">uint256</span> result
+    ) <span class="code-keyword">internal override</span> {
+        latestNDVI = result;
+        <span class="code-keyword">if</span> (result < payoutThreshold) {
+            <span class="code-function">_triggerPayout</span>();
+        }
+    }
+}</pre></code>
+          </div>
+        </div>
+
+        <div>
+          <div class="glass-card" style="margin-bottom:1.5rem;">
+            <h4 style="margin-bottom:1rem;">Quick Start</h4>
+            <div class="code-block" style="margin-bottom:1rem;">
+              <code>
+                <span class="code-comment"># Install the smart contract kit</span><br>
+                <span class="code-function">npm</span> install <span class="code-string">@shamba/smart-contract-kit</span>
+              </code>
+            </div>
+            <p style="font-size:0.95rem;">Import <code style="color:var(--purple-light);">ShambaGeoConsumer</code> for vegetation, rainfall, and soil data or <code style="color:var(--purple-light);">ShambaFireConsumer</code> for fire detection feeds.</p>
+          </div>
+
+          <div class="glass-card">
+            <h4 style="margin-bottom:1rem;">Request Parameters</h4>
+            <ul style="list-style:none;padding:0;">
+              <li style="padding:0.5rem 0;border-bottom:1px solid var(--glass-border);color:var(--white-muted);font-size:0.95rem;">
+                <strong style="color:var(--purple-light);">areaOfInterest</strong> &mdash; GeoJSON polygon or coordinates
+              </li>
+              <li style="padding:0.5rem 0;border-bottom:1px solid var(--glass-border);color:var(--white-muted);font-size:0.95rem;">
+                <strong style="color:var(--purple-light);">startDate / endDate</strong> &mdash; Time range (ISO 8601)
+              </li>
+              <li style="padding:0.5rem 0;border-bottom:1px solid var(--glass-border);color:var(--white-muted);font-size:0.95rem;">
+                <strong style="color:var(--purple-light);">dataType</strong> &mdash; ndvi, rainfall, soil_carbon, fire, land_cover
+              </li>
+              <li style="padding:0.5rem 0;color:var(--white-muted);font-size:0.95rem;">
+                <strong style="color:var(--purple-light);">statistic</strong> &mdash; mean, max, min, median, variance
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== TECHNICAL SPECS TABLE ========== -->
+  <section class="section reveal" id="specs">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Specifications</span>
+        <h2>Technical <span class="text-gradient">Specifications</span></h2>
+      </div>
+
+      <div class="glass-card" style="overflow-x:auto;">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Specification</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Oracle Type</strong></td>
+              <td>Decentralized climate data oracle (DePIN model)</td>
+            </tr>
+            <tr>
+              <td><strong>Node Software</strong></td>
+              <td>Open-source SDK (GNU GPL / MIT / BSD licensed)</td>
+            </tr>
+            <tr>
+              <td><strong>Hardware Requirement</strong></td>
+              <td>Standard laptop or desktop with broadband internet</td>
+            </tr>
+            <tr>
+              <td><strong>Operating Systems</strong></td>
+              <td>Linux, macOS, Windows</td>
+            </tr>
+            <tr>
+              <td><strong>Satellite Data Sources</strong></td>
+              <td>30+ databases from NASA, ESA, NOAA, JAXA</td>
+            </tr>
+            <tr>
+              <td><strong>Data Products</strong></td>
+              <td>NDVI, rainfall, soil organic carbon, fire detection, land use classification</td>
+            </tr>
+            <tr>
+              <td><strong>Statistics Supported</strong></td>
+              <td>Mean, max, min, median, variance</td>
+            </tr>
+            <tr>
+              <td><strong>Supported Chains</strong></td>
+              <td>Arbitrum, Avalanche, Ethereum, Optimism, Polygon</td>
+            </tr>
+            <tr>
+              <td><strong>Smart Contracts</strong></td>
+              <td>Solidity (ShambaGeoConsumer, ShambaFireConsumer)</td>
+            </tr>
+            <tr>
+              <td><strong>Developer Kit</strong></td>
+              <td>npm <code style="color:var(--purple-light);">@shamba/smart-contract-kit</code></td>
+            </tr>
+            <tr>
+              <td><strong>Decentralized Storage</strong></td>
+              <td>Filecoin / IPFS for immutable MRV metadata</td>
+            </tr>
+            <tr>
+              <td><strong>Consensus Model</strong></td>
+              <td>n-of-N random node selection with aggregation and tolerance-based consensus</td>
+            </tr>
+            <tr>
+              <td><strong>Security Model</strong></td>
+              <td>Staking + slashing (honest operation more profitable than manipulation)</td>
+            </tr>
+            <tr>
+              <td><strong>Governance</strong></td>
+              <td>Progressive decentralization &mdash; token-holder voting on data sources, parameters, upgrades</td>
+            </tr>
+            <tr>
+              <td><strong>Target Network Size</strong></td>
+              <td>10&ndash;30 nodes (testnet), 100+ (post-mainnet)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA SECTION ========== -->
+  <section class="section cta-section reveal">
+    <div class="container">
+      <div class="cta-grid">
+        <div class="glass-card cta-card">
+          <h3>Run a Node</h3>
+          <p>Download the open-source SDK and join the network. Earn rewards by providing accurate climate data &mdash; all from a standard laptop.</p>
+          <a href="community.html#get-started" class="btn btn-primary">Get Started</a>
+        </div>
+        <div class="glass-card cta-card">
+          <h3>Build on Shamba</h3>
+          <p>Integrate verified climate data into your smart contracts. Parametric insurance, carbon credits, prediction markets, and more.</p>
+          <a href="https://docs.shamba.app/en/latest/quickstart.html" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Read the Docs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <img src="images/shamba-logo.png" alt="Shamba Network" width="140" height="40">
+          </a>
+          <p>The decentralized climate data oracle. Verifiable Earth observation data for a regenerative economy.</p>
+          <div class="footer-social">
+            <a href="https://twitter.com/shambanetwork" target="_blank" rel="noopener noreferrer" aria-label="Follow Shamba on X (Twitter)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>
+            </a>
+            <a href="https://medium.com/@shambanetwork" target="_blank" rel="noopener noreferrer" aria-label="Read Shamba on Medium">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0"/></svg>
+            </a>
+            <a href="https://github.com/shamba-network" target="_blank" rel="noopener noreferrer" aria-label="View Shamba on GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </a>
+            <a href="https://ke.linkedin.com/company/shambanetwork" target="_blank" rel="noopener noreferrer" aria-label="Connect with Shamba on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Platform</h5>
+          <div class="footer-links">
+            <a href="technology.html">Technology</a>
+            <a href="tokenomics.html">Tokenomics</a>
+            <a href="impact.html">Impact</a>
+            <a href="about.html">About</a>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Developers</h5>
+          <div class="footer-links">
+            <a href="https://docs.shamba.app/en/latest/" target="_blank" rel="noopener noreferrer">Documentation</a>
+            <a href="https://docs.shamba.app/en/latest/quickstart.html" target="_blank" rel="noopener noreferrer">Quick Start</a>
+            <a href="https://github.com/shamba-network" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://shamba.app/" target="_blank" rel="noopener noreferrer">Shamba App</a>
+          </div>
+        </div>
+
+        <div>
+          <h5 class="footer-heading">Community</h5>
+          <div class="footer-links">
+            <a href="community.html">Join the Network</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="https://medium.com/@shambanetwork" target="_blank" rel="noopener noreferrer">Blog</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Shamba Network. All rights reserved.</span>
+        <span>Juja, Kenya &middot; Building for the world</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+
+</body>
+</html>
