@@ -847,6 +847,39 @@ p {
   font-size: 0.95rem;
 }
 
+/* === Partner & Network Logos === */
+.partner-logo {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 0.75rem;
+  object-fit: contain;
+}
+
+.trust-logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.trust-logo-with-img {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blockchain-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.data-source-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
 /* === Media Ticker === */
 .media-scroll {
   display: flex;
