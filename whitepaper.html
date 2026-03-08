@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whitepaper - Shamba Network</title>
+  <meta name="description" content="Shamba Network Whitepaper: The Decentralized Climate Data Oracle. Verifiable Earth observation data for a regenerative economy. Full technical and economic overview.">
+  <link rel="icon" type="image/png" href="images/shamba-logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo"><img src="images/shamba-logo.png" alt="Shamba Network" width="180" height="52"></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="technology.html">Technology</a>
+        <a href="tokenomics.html">Tokenomics</a>
+        <a href="impact.html">Impact</a>
+        <a href="about.html">About</a>
+        <a href="community.html">Community</a>
+        <a href="whitepaper.html" class="active">Whitepaper</a>
+        <a href="contact.html">Contact</a>
+        <a href="community.html#get-started" class="nav-cta">Get Started</a>
+      </div>
+      <button class="mobile-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE HEADER ===== -->
+  <header class="page-header">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="page-header-content">
+      <span class="section-label">Whitepaper</span>
+      <h1>The Decentralized <span class="text-gradient">Climate Data Oracle</span></h1>
+      <p>Verifiable Earth Observation Data for a Regenerative Economy</p>
+      <div class="wp-version-badge">Version 1.0 &mdash; March 2026</div>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE TOC TOGGLE ===== -->
+  <div style="max-width: 1300px; margin: 0 auto; padding: 1.5rem 2rem 0;">
+    <button class="wp-toc-mobile-toggle" id="toc-toggle">
+      Table of Contents
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+
+  <!-- ===== LAYOUT: TOC + CONTENT ===== -->
+  <div class="wp-layout">
+
+    <!-- Sidebar TOC -->
+    <aside class="wp-toc" id="wp-toc">
+      <div class="wp-toc-title">Contents</div>
+      <nav class="wp-toc-list" aria-label="Table of contents">
+        <a href="#abstract" class="wp-toc-link active">Abstract</a>
+        <a href="#problem" class="wp-toc-link">1. The Problem</a>
+        <a href="#why-now" class="wp-toc-link">2. Why This Matters Now</a>
+        <a href="#solution" class="wp-toc-link">3. The Solution</a>
+        <a href="#architecture" class="wp-toc-link">4. Architecture</a>
+        <a href="#sdk" class="wp-toc-link">5. Oracle Node SDK</a>
+        <a href="#consensus" class="wp-toc-link">6. Consensus &amp; Aggregation</a>
+        <a href="#tokenomics" class="wp-toc-link">7. Tokenomics</a>
+        <a href="#governance" class="wp-toc-link">8. Governance</a>
+        <a href="#use-cases" class="wp-toc-link">9. Use Cases</a>
+        <a href="#traction" class="wp-toc-link">10. Traction &amp; Impact</a>
+        <a href="#ecosystem" class="wp-toc-link">11. Ecosystem</a>
+        <a href="#recognition" class="wp-toc-link">12. Recognition &amp; Media</a>
+        <a href="#roadmap" class="wp-toc-link">13. Roadmap</a>
+        <a href="#team" class="wp-toc-link">14. Team</a>
+        <a href="#open-source" class="wp-toc-link">15. Open Source</a>
+        <a href="#conclusion" class="wp-toc-link">16. Conclusion</a>
+        <a href="#references" class="wp-toc-link">17. References</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="wp-content">
+
+      <!-- ==================== ABSTRACT ==================== -->
+      <section class="wp-section" id="abstract">
+        <h2 class="wp-section-title">Abstract</h2>
+
+        <p class="wp-text">Over thirty satellite constellations scan the Earth every day. NASA, ESA, NOAA, and JAXA produce petabytes of data on vegetation health, rainfall, soil carbon, fire risk, and land use change. This data could unlock trillions in climate finance. Carbon credits, parametric insurance, green bonds &mdash; all of it depends on reliable environmental data.</p>
+
+        <p class="wp-text"><strong>But almost none of this data reaches the applications that need it.</strong></p>
+
+        <p class="wp-text">The voluntary carbon market, on track to grow from $2.5 billion to over $15 billion by 2035, still relies on manual field audits that cost $30&ndash;50 per hectare. Parametric insurance could protect the 97% of sub-Saharan African farmers who have no coverage, but it can&rsquo;t scale without a trusted, decentralized way to get climate data into smart contracts. Prediction markets hit $63.5 billion in trading volume in 2025 and face the same problem: they need real-world data that no single party can game.</p>
+
+        <p class="wp-text">This is the oracle problem. For climate data, it&rsquo;s still unsolved.</p>
+
+        <p class="wp-text">Shamba Network is a decentralized climate data oracle. It&rsquo;s built on an open-source node SDK, packaged as a Docker container and deployed to the cloud. The network has three types of data providers: node operators who process satellite imagery, ground truthers who collect field data with a mobile app, and data validators who bring domain expertise to resolve edge cases. Delegated staking, rewards, and slashing keep everyone honest.</p>
+
+        <p class="wp-text">The team has spent four years testing this in the field. The oracle has powered parametric insurance for 3,000+ farmers across East Africa, delivered anticipatory cash transfers to drought-affected pastoralists with 75% lower transaction costs and 90% faster settlement, and helped smallholder communities issue their own carbon credits.</p>
+
+        <div class="wp-stat-grid">
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">3,000+</div>
+            <div class="wp-stat-label">Farmers Reached</div>
+          </div>
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">75%</div>
+            <div class="wp-stat-label">Cost Reduction</div>
+          </div>
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">90%</div>
+            <div class="wp-stat-label">Faster Settlement</div>
+          </div>
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">6</div>
+            <div class="wp-stat-label">Blockchain Networks</div>
+          </div>
+        </div>
+
+        <p class="wp-text">Shamba was named a CoinDesk Project to Watch, received grants from Chainlink and Gitcoin, graduated from the Outlier Ventures accelerator, and presented at COP28. Now the project is evolving from a centralized service into a fully decentralized protocol &mdash; owned and operated by its community, secured by staking, and governed by its participants.</p>
+      </section>
+
+      <!-- ==================== 1. THE PROBLEM ==================== -->
+      <section class="wp-section" id="problem">
+        <h2 class="wp-section-title"><span class="wp-section-number">1</span> The Problem</h2>
+
+        <div class="wp-card-grid">
+          <div class="wp-card">
+            <h4 class="wp-card-title" style="color: var(--purple-light);">The Climate Data Gap</h4>
+            <p class="wp-card-text">Satellites measure vegetation health, track rainfall, estimate soil carbon, detect wildfires, and classify land use every day. The data is free and public &mdash; but almost entirely unusable by the applications that need it. Manual MRV audits cost $30&ndash;50/hectare, locking 1.5 billion smallholder farmers out of carbon markets.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title" style="color: var(--purple-light);">The Oracle Problem</h4>
+            <p class="wp-card-text">Smart contracts can&rsquo;t access external data on their own. Centralized oracles are single points of failure. DeFi protocols lost $8.8 billion to oracle manipulation attacks. The BIS warns: adding trusted parties to a trustless system defeats the purpose.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title" style="color: var(--purple-light);">The Inclusion Gap</h4>
+            <p class="wp-card-text">50 million smallholder farmers in Africa cultivate 80% of the continent&rsquo;s food on plots smaller than 2 hectares. 97% are uninsured. They face a $200 billion annual financing gap. Affordable agricultural insurance exists in only 4 of Africa&rsquo;s 54 countries.</p>
+          </div>
+        </div>
+
+        <h3 class="wp-subsection-title">1.1 The climate data gap</h3>
+        <p class="wp-text">Every day, satellites measure vegetation health, track rainfall, estimate soil carbon, detect wildfires, and classify land use. The data is free. It&rsquo;s public. And it&rsquo;s almost entirely unusable by the applications that need it.</p>
+        <p class="wp-text">Carbon credit markets need Monitoring, Reporting, and Verification (MRV) to prove that carbon has actually been sequestered. Today, that means sending auditors to physically inspect land &mdash; $30&ndash;50 per hectare, weeks or months of waiting, and completely out of reach for smallholder farmers with less than two hectares. The 1.5 billion smallholder farmers who produce 80% of the world&rsquo;s food? Locked out of carbon markets.</p>
+        <p class="wp-text">Parametric insurance needs trusted data feeds to trigger automatic payouts when weather thresholds are crossed. But if one company controls the data pipeline, they control whether payouts happen.</p>
+
+        <h3 class="wp-subsection-title">1.2 The oracle problem</h3>
+        <p class="wp-text">The blockchain oracle problem is well-documented. Smart contracts execute exactly as programmed, but they can&rsquo;t access external data on their own. They need oracles to bridge the gap between the real world and the blockchain.</p>
+        <div class="wp-blockquote">
+          <p>&ldquo;While introducing some degree of centralisation in oracles might boost efficiency, it also means adding trusted parties to a system designed to be trustless.&rdquo;</p>
+          <cite>&mdash; Bank for International Settlements, BIS Bulletin No. 76</cite>
+        </div>
+        <p class="wp-text">In 2022, DeFi protocols lost $403.2 million across 41 separate oracle manipulation incidents. By 2025, oracle-related losses had reached $8.8 billion. Every centralized data feed is a single point of failure.</p>
+
+        <h3 class="wp-subsection-title">1.3 The inclusion gap</h3>
+        <p class="wp-text">Fifty million smallholder farmers in Africa cultivate 80% of the continent&rsquo;s food on plots typically smaller than two hectares. Ninety-seven percent of them have no insurance. They face a combined financing gap exceeding $200 billion annually. Affordable agricultural insurance exists in only 4 of Africa&rsquo;s 54 countries. Just 3% of the continent&rsquo;s farmers have any form of crop insurance.</p>
+      </section>
+
+      <!-- ==================== 2. WHY THIS MATTERS NOW ==================== -->
+      <section class="wp-section" id="why-now">
+        <h2 class="wp-section-title"><span class="wp-section-number">2</span> Why This Matters Now</h2>
+        <p class="wp-text">Four trends are converging.</p>
+
+        <div class="wp-stat-grid">
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">$15B+</div>
+            <div class="wp-stat-label">Carbon Market by 2035</div>
+          </div>
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">$402B</div>
+            <div class="wp-stat-label">Climate Damages (2024)</div>
+          </div>
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">$63.5B</div>
+            <div class="wp-stat-label">Prediction Market Volume (2025)</div>
+          </div>
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">$19.2B</div>
+            <div class="wp-stat-label">DePIN Market Cap (2025)</div>
+          </div>
+        </div>
+
+        <h3 class="wp-subsection-title">2.1 The carbon market is accelerating</h3>
+        <p class="wp-text">The voluntary carbon market is valued at roughly $2.5 billion in 2025 and projected to reach $15 billion by 2035, with some analysts forecasting $47.5 billion. Over 62% of sustainability-focused enterprises are increasing their voluntary offset strategies. New integrity standards from the ICVCM are raising the bar for data quality.</p>
+
+        <h3 class="wp-subsection-title">2.2 Climate disasters are intensifying</h3>
+        <p class="wp-text">The planet was hit by 58 billion-dollar weather disasters in 2024, causing $402 billion in damages. In 2025, there were 55, causing $277 billion. The LA wildfires alone exceeded $60 billion &mdash; a record for a single wildfire event.</p>
+
+        <h3 class="wp-subsection-title">2.3 Prediction markets have arrived</h3>
+        <p class="wp-text">Prediction markets grew from $15.8 billion in trading volume in 2024 to $63.5 billion in 2025. These markets need manipulation-resistant data feeds. Climate events &mdash; droughts, floods, fire seasons, crop yields &mdash; are natural candidates.</p>
+
+        <h3 class="wp-subsection-title">2.4 DePIN is proving the model</h3>
+        <p class="wp-text">Decentralized Physical Infrastructure Networks (DePIN) reached a combined market cap of $19.2 billion in 2025, up 270% year-over-year. The World Economic Forum projects DePIN will grow to $3.5 trillion by 2028. Projects like Helium, Grass, and Aethir have shown that decentralized networks of independent operators can deliver real infrastructure at scale using token incentives.</p>
+        <p class="wp-text">Shamba applies this model to climate data: a decentralized network of node operators, ground truthers, and data validators, all running open-source software, all incentivized by tokens, providing verified Earth observation data on-chain.</p>
+      </section>
+
+      <!-- ==================== 3. THE SOLUTION ==================== -->
+      <section class="wp-section" id="solution">
+        <h2 class="wp-section-title"><span class="wp-section-number">3</span> The Solution</h2>
+
+        <h3 class="wp-subsection-title">3.1 What Shamba Network is</h3>
+        <p class="wp-text">Shamba Network is a decentralized climate data oracle. It&rsquo;s a permissionless network of three types of independent data providers who source, verify, and deliver Earth observation data to smart contracts.</p>
+        <p class="wp-text">At its core, it solves a simple problem: how do you get trusted climate data on-chain without trusting any single party? <strong>You trust the network.</strong></p>
+
+        <h3 class="wp-subsection-title">3.2 Three data provider roles</h3>
+        <div class="wp-card-grid">
+          <div class="wp-card">
+            <h4 class="wp-card-title">Node Operators</h4>
+            <p class="wp-card-text">Run the Shamba Oracle Node SDK &mdash; a cloud-deployed Docker container that fetches satellite data from public APIs (NASA, ESA, NOAA, JAXA), processes it through open-source analysis pipelines, and delivers computed ecological indicators on-chain.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Ground Truthers</h4>
+            <p class="wp-card-text">Use the Shamba mobile app to collect field data &mdash; geotagged photos, GPS coordinates, measurements like crop height, soil conditions, tree counts, and species identification. Supplements satellite data for carbon credits and biodiversity.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Data Validators</h4>
+            <p class="wp-card-text">Domain experts (agronomists, ecologists, carbon analysts, climate scientists) who step in when automated analysis is ambiguous or when satellite data and ground truth conflict. They synthesize sources and determine edge cases.</p>
+          </div>
+        </div>
+
+        <h3 class="wp-subsection-title">3.3 How it works</h3>
+        <div class="wp-flow">
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">1</div>
+            <p class="wp-flow-text">An on-chain application <strong>requests climate data</strong>. E.g.: &ldquo;What is the NDVI vegetation index for this 10km grid in Laikipia County, Kenya, for the past 30 days?&rdquo;</p>
+          </div>
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">2</div>
+            <p class="wp-flow-text">The protocol <strong>randomly selects providers</strong> from the staked pool. Node operators for satellite data, ground truthers for field verification, data validators for expert review &mdash; depending on verification level.</p>
+          </div>
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">3</div>
+            <p class="wp-flow-text">Each provider <strong>independently sources data</strong> &mdash; nodes fetch satellite imagery, ground truthers collect field measurements, validators review and synthesize.</p>
+          </div>
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">4</div>
+            <p class="wp-flow-text">Three <strong>aggregation services</strong> process submissions. A master aggregation contract combines outputs and produces the final verified result. Accurate providers get rewarded. Bad data gets slashed.</p>
+          </div>
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">5</div>
+            <p class="wp-flow-text">Verified data is <strong>delivered on-chain</strong> &mdash; immutable, publicly auditable. It can trigger insurance payouts, validate carbon credits, settle prediction markets, or power any climate-linked application.</p>
+          </div>
+        </div>
+
+        <h3 class="wp-subsection-title">3.4 Mission</h3>
+        <p class="wp-text">Shamba Network exists to help land stewards &mdash; particularly smallholder farmers &mdash; by:</p>
+        <ul class="wp-list">
+          <li>Enabling them to create impact credits (carbon, eco, biodiversity)</li>
+          <li>Making climate insurance parametric, automated, and affordable</li>
+          <li>Opening access to climate finance, green bonds, and microloans</li>
+          <li>Supporting regeneration of agricultural land through satellite-verified sustainable practices</li>
+          <li>Making carbon removal and biodiversity protection measurable and monetizable</li>
+        </ul>
+      </section>
+
+      <!-- ==================== 4. ARCHITECTURE ==================== -->
+      <section class="wp-section" id="architecture">
+        <h2 class="wp-section-title"><span class="wp-section-number">4</span> Architecture</h2>
+
+        <h3 class="wp-subsection-title">4.1 System overview</h3>
+
+        <div class="wp-diagram">
+          <div class="wp-diagram-label">Data Sources</div>
+          <div class="wp-diagram-layer">
+            <div class="wp-diagram-node wp-diagram-node-blue">NASA &middot; ESA &middot; NOAA &middot; JAXA<br><small style="opacity:0.7">30+ satellite databases</small></div>
+            <div class="wp-diagram-node wp-diagram-node-green">Shamba Mobile App<br><small style="opacity:0.7">Photos, GPS, measurements</small></div>
+            <div class="wp-diagram-node wp-diagram-node-purple">Domain Experts<br><small style="opacity:0.7">Specialist assessments</small></div>
+          </div>
+
+          <div class="wp-diagram-arrow">&darr;</div>
+          <div class="wp-diagram-label">Three Data Provider Types (staking required)</div>
+          <div class="wp-diagram-layer">
+            <div class="wp-diagram-node wp-diagram-node-purple">Node Operators<br><small style="opacity:0.7">Cloud SDK</small></div>
+            <div class="wp-diagram-node wp-diagram-node-green">Ground Truthers<br><small style="opacity:0.7">Mobile App</small></div>
+            <div class="wp-diagram-node wp-diagram-node-blue">Data Validators<br><small style="opacity:0.7">Expert Review</small></div>
+          </div>
+
+          <div class="wp-diagram-arrow">&darr;</div>
+          <div class="wp-diagram-label">Aggregation</div>
+          <div class="wp-diagram-layer">
+            <div class="wp-diagram-node wp-diagram-node-purple">Node Aggregation</div>
+            <div class="wp-diagram-node wp-diagram-node-green">Ground Truth Aggregation</div>
+            <div class="wp-diagram-node wp-diagram-node-blue">Validation Aggregation</div>
+          </div>
+
+          <div class="wp-diagram-arrow">&darr;</div>
+          <div class="wp-diagram-layer">
+            <div class="wp-diagram-node wp-diagram-node-purple" style="min-width: 300px; background: rgba(108,58,237,0.25); border-color: rgba(108,58,237,0.5);">
+              <strong>Master Aggregation Contract</strong><br>
+              <small style="opacity:0.7">Combines layers &middot; Rewards accurate providers &middot; Slashes bad actors</small>
+            </div>
+          </div>
+
+          <div class="wp-diagram-arrow">&darr;</div>
+          <div class="wp-diagram-label">Protocol Smart Contracts</div>
+          <div class="wp-diagram-layer">
+            <div class="wp-diagram-node wp-diagram-node-purple">Staking &amp; Slashing</div>
+            <div class="wp-diagram-node wp-diagram-node-green">Delegated Staking</div>
+            <div class="wp-diagram-node wp-diagram-node-blue">Governance &amp; Scoring</div>
+          </div>
+
+          <div class="wp-diagram-arrow">&darr;</div>
+          <div class="wp-diagram-label">On-Chain Applications</div>
+          <div class="wp-diagram-layer">
+            <div class="wp-diagram-node wp-diagram-node-green">Parametric Insurance</div>
+            <div class="wp-diagram-node wp-diagram-node-green">Carbon Credits</div>
+            <div class="wp-diagram-node wp-diagram-node-green">Prediction Markets</div>
+          </div>
+          <div class="wp-diagram-layer" style="margin-top: 0.5rem;">
+            <div class="wp-diagram-node wp-diagram-node-green">Green Bonds</div>
+            <div class="wp-diagram-node wp-diagram-node-green">Conditional Aid</div>
+            <div class="wp-diagram-node wp-diagram-node-green">Impact Credits</div>
+          </div>
+        </div>
+
+        <h3 class="wp-subsection-title">4.2 Design principles</h3>
+        <div class="wp-card-grid">
+          <div class="wp-card">
+            <h4 class="wp-card-title">Decentralization over efficiency</h4>
+            <p class="wp-card-text">Every data point is independently verified by multiple providers across multiple layers. Slower than a centralized API call, but trustworthy by design.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Accessibility over exclusivity</h4>
+            <p class="wp-card-text">The node SDK runs as an on-demand Docker container with minimal cost. Ground truthers use a mobile app. Anyone can participate in the role that matches their capabilities.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Open source over proprietary</h4>
+            <p class="wp-card-text">Every component is open source: the node SDK, mobile app, aggregation contracts, staking and governance contracts. Anyone can inspect, audit, fork, or improve.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Incentive alignment over enforcement</h4>
+            <p class="wp-card-text">The protocol makes bad behavior economically irrational through staking and slashing. Honest providers are rewarded. Dishonest providers lose their stake &mdash; and so do their delegators.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 5. ORACLE NODE SDK ==================== -->
+      <section class="wp-section" id="sdk">
+        <h2 class="wp-section-title"><span class="wp-section-number">5</span> The Oracle Node SDK</h2>
+
+        <h3 class="wp-subsection-title">5.1 Overview</h3>
+        <p class="wp-text">The SDK is an open-source Docker container designed for cloud deployment. It contains everything needed to operate a node on the network and can be deployed within minutes on any supported cloud platform.</p>
+
+        <h3 class="wp-subsection-title">5.2 Capabilities</h3>
+        <div class="wp-card-grid">
+          <div class="wp-card">
+            <h4 class="wp-card-title">Data Sourcing</h4>
+            <p class="wp-card-text">NASA MODIS &amp; Landsat (vegetation, temperature), ESA Copernicus Sentinel (land monitoring), NOAA atmospheric/weather data, JAXA Earth observation. Extensible architecture for community modules.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Computation Pipeline</h4>
+            <p class="wp-card-text">NDVI calculation, rainfall monitoring (AI-enhanced), soil organic carbon estimation, fire detection, land use classification, and descriptive statistics for any area of interest.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Node Operations</h4>
+            <p class="wp-card-text">Automated response to data requests, cryptographic signing, staking &amp; reward management, health monitoring, diagnostics, and CLI interface.</p>
+          </div>
+        </div>
+
+        <h3 class="wp-subsection-title">5.3 Cloud deployment</h3>
+        <p class="wp-text">The SDK activates only when needed to serve data requests, so operators pay for compute time only when they&rsquo;re actually working. Cloud deployment means nodes are always online. On-demand execution makes node operation affordable &mdash; climate data infrastructure for the world, not just for people who can afford dedicated servers.</p>
+
+        <h3 class="wp-subsection-title">5.4 The Shamba mobile app (ground truthing)</h3>
+        <p class="wp-text">The mobile app handles field-level data collection that supplements and validates satellite data:</p>
+        <ul class="wp-list">
+          <li>Geotagged photo capture with automatic GPS</li>
+          <li>Field measurement recording (crop height, soil conditions, tree counts, species identification)</li>
+          <li>Structured data collection forms tailored to project types</li>
+          <li>Automatic submission to the Ground Truth Aggregation Service</li>
+          <li>Provider dashboard showing staking status, credibility score, and reward history</li>
+        </ul>
+      </section>
+
+      <!-- ==================== 6. CONSENSUS ==================== -->
+      <section class="wp-section" id="consensus">
+        <h2 class="wp-section-title"><span class="wp-section-number">6</span> Consensus and Aggregation</h2>
+
+        <h3 class="wp-subsection-title">6.1 Request flow</h3>
+        <p class="wp-text">When an on-chain application needs climate data, it submits a request specifying the data type, geographic area, time period, statistical method, and verification level (which determines which aggregation layers activate).</p>
+
+        <h3 class="wp-subsection-title">6.2 Provider selection</h3>
+        <p class="wp-text">The protocol randomly selects providers from each required layer. Random selection prevents collusion. No provider knows in advance whether they&rsquo;ll be selected for a given request.</p>
+
+        <h3 class="wp-subsection-title">6.3 Independent data collection</h3>
+        <p class="wp-text">Because every node accesses the same public satellite data and runs the same open-source computation, honest nodes should reach the same result. Discrepancies indicate either a bug (which the community can fix) or manipulation (which is punished through slashing).</p>
+
+        <h3 class="wp-subsection-title">6.4 Multi-layer aggregation</h3>
+        <div class="wp-table-wrap">
+          <table class="wp-table">
+            <thead>
+              <tr><th>Layer</th><th>Role</th><th>Function</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Layer 1: Node Aggregation</td><td>Satellite data consensus</td><td>Collects results from selected nodes, determines consensus within tolerance</td></tr>
+              <tr><td>Layer 2: Ground Truth</td><td>Field data validation</td><td>Collects field data from ground truthers, cross-references against satellite</td></tr>
+              <tr><td>Layer 3: Validation</td><td>Expert review</td><td>Collects expert assessments, synthesizes determinations on edge cases</td></tr>
+              <tr><td>Master Contract</td><td>Final aggregation</td><td>Combines all active layers, delivers result, rewards/slashes providers</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="wp-text">Not every request activates all three layers. A simple parametric insurance query may only need Layer 1. A carbon credit issuance may need all three. The verification level determines both cost and thoroughness.</p>
+
+        <h3 class="wp-subsection-title">6.5 Why this works for climate data</h3>
+        <ul class="wp-list">
+          <li><strong>Public and deterministic source data.</strong> Every node accesses the same NASA/ESA/NOAA/JAXA APIs.</li>
+          <li><strong>Reproducible computation.</strong> Same inputs + same open-source pipeline = same output.</li>
+          <li><strong>Well-defined tolerance boundaries.</strong> Small floating-point variations are normal; large deviations are attacks.</li>
+          <li><strong>Real-world ground truth.</strong> Satellite observations can be cross-validated against field measurements.</li>
+          <li><strong>Expert resolution.</strong> Data validators provide judgment when satellite data and ground truth conflict.</li>
+        </ul>
+      </section>
+
+      <!-- ==================== 7. TOKENOMICS ==================== -->
+      <section class="wp-section" id="tokenomics">
+        <h2 class="wp-section-title"><span class="wp-section-number">7</span> Tokenomics</h2>
+
+        <h3 class="wp-subsection-title">7.1 The Shamba token</h3>
+        <p class="wp-text">The network will have a native token. It does nine things, and five of those directly create buy pressure or reduce selling pressure.</p>
+
+        <div class="wp-table-wrap">
+          <table class="wp-table">
+            <thead>
+              <tr><th>Utility</th><th>Description</th><th>Economic Effect</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Staking</strong></td><td>Providers must stake to be eligible for selection</td><td>Buy pressure / Lock-up</td></tr>
+              <tr><td><strong>Delegated Staking</strong></td><td>Any holder stakes with a provider; shares rewards and risk</td><td>Buy pressure / Lock-up</td></tr>
+              <tr><td><strong>Rewards</strong></td><td>Providers earn tokens for accurate data delivery</td><td>Distribution</td></tr>
+              <tr><td><strong>Governance</strong></td><td>Token holders vote on protocol decisions</td><td>Lock-up</td></tr>
+              <tr><td><strong>Data Consumption Fees</strong></td><td>Every data request pays in native tokens</td><td>Buy pressure</td></tr>
+              <tr><td><strong>Staking Discount</strong></td><td>10&ndash;20% discount on fees for consumers who also stake</td><td>Lock-up</td></tr>
+              <tr><td><strong>Fee Burn</strong></td><td>2&ndash;5% of every data request fee is permanently burned</td><td>Deflationary</td></tr>
+              <tr><td><strong>Premium Data Tiers</strong></td><td>Historical archives, higher resolution, faster updates</td><td>Lock-up</td></tr>
+              <tr><td><strong>Credibility Boosting</strong></td><td>Providers stake above minimum for higher selection frequency</td><td>Lock-up</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="wp-subsection-title">7.2 Delegated staking and provider credibility</h3>
+        <p class="wp-text">Because delegators share in both rewards and penalties, rational token holders will only stake with providers who have a good track record. Every provider has a public credibility score based on: successful requests served, accuracy rate, uptime/availability, and tenure. A public ranking dashboard shows all providers sorted by credibility.</p>
+
+        <h3 class="wp-subsection-title">7.3 Token distribution</h3>
+        <div class="wp-table-wrap">
+          <table class="wp-table">
+            <thead>
+              <tr><th>Category</th><th>Purpose</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Data Provider Rewards</strong></td><td>Largest allocation &mdash; earned by providers for accurate data delivery</td></tr>
+              <tr><td><strong>Community Treasury</strong></td><td>Grants, ecosystem development, bounties, public goods</td></tr>
+              <tr><td><strong>Team &amp; Development</strong></td><td>Founding team and ongoing development, with vesting</td></tr>
+              <tr><td><strong>Ecosystem Partners</strong></td><td>Strategic partnerships, integrations, ecosystem growth</td></tr>
+              <tr><td><strong>Early Investors</strong></td><td>Limited allocation for early supporters</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="wp-text">The fee burn mechanism (2&ndash;5% of every data request) permanently removes tokens from circulation, offsetting emissions from provider rewards over time.</p>
+
+        <h3 class="wp-subsection-title">7.4 Economic security</h3>
+        <p class="wp-text">The security model rests on a simple idea: honesty must always be more profitable than manipulation. To manipulate a data point, an attacker would need to control a majority of the randomly selected providers across multiple layers. As the network grows, this gets exponentially more expensive. All reports, rewards, slashing events, and credibility scores are recorded on-chain.</p>
+      </section>
+
+      <!-- ==================== 8. GOVERNANCE ==================== -->
+      <section class="wp-section" id="governance">
+        <h2 class="wp-section-title"><span class="wp-section-number">8</span> Governance</h2>
+
+        <h3 class="wp-subsection-title">8.1 Progressive decentralization</h3>
+        <p class="wp-text">At launch, core technical decisions are made by the founding team to ensure stability and security. Over time, governance authority transfers to the community.</p>
+
+        <h3 class="wp-subsection-title">8.2 Governance scope</h3>
+        <p class="wp-text">Token holders vote on:</p>
+        <ul class="wp-list">
+          <li><strong>Data sources:</strong> Adding or removing supported satellite APIs</li>
+          <li><strong>Protocol parameters:</strong> Slashing penalties, reward rates, staking requirements, consensus thresholds</li>
+          <li><strong>Protocol upgrades:</strong> Changes to smart contracts and the SDK</li>
+          <li><strong>Treasury allocation:</strong> Directing community funds toward grants, bounties, and public goods</li>
+        </ul>
+
+        <h3 class="wp-subsection-title">8.3 Governance mechanism</h3>
+        <div class="wp-flow">
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">1</div>
+            <p class="wp-flow-text"><strong>Community discussion</strong> in public forums</p>
+          </div>
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">2</div>
+            <p class="wp-flow-text"><strong>Formal on-chain proposal</strong> with a token deposit</p>
+          </div>
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">3</div>
+            <p class="wp-flow-text"><strong>Defined voting period</strong></p>
+          </div>
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">4</div>
+            <p class="wp-flow-text"><strong>Execution</strong> &mdash; automatic (parameter changes) or by the development team (code changes)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 9. USE CASES ==================== -->
+      <section class="wp-section" id="use-cases">
+        <h2 class="wp-section-title"><span class="wp-section-number">9</span> Use Cases</h2>
+
+        <div class="wp-card-grid">
+          <div class="wp-card">
+            <h4 class="wp-card-title">Parametric Climate Insurance</h4>
+            <p class="wp-card-text">Verified rainfall, vegetation, and temperature data triggers automatic smart contract payouts. No claims filing. 40% lower insurance costs. Already tested with 150 cattle herders and rainfall insurance for MSMEs.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Carbon Credits &amp; Impact Credits</h4>
+            <p class="wp-card-text">Automated dMRV validates carbon sequestration at a fraction of manual audit costs. Smallholder farmers in Gatanga issuing credits from avocado trees. Partnerships with Regen Network and Thallo.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Anticipatory Cash Transfers</h4>
+            <p class="wp-card-text">Payouts triggered before a crisis becomes catastrophe. 262 pastoralists received transfers when satellite data showed pasture distress &mdash; 75% lower costs, 90% faster settlement.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Prediction Markets</h4>
+            <p class="wp-card-text">$63.5 billion in 2025 volume. Climate events (droughts, floods, crop yields) need manipulation-resistant data feeds. Shamba&rsquo;s multi-node consensus provides verifiable answers.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Green Bonds &amp; Climate Finance</h4>
+            <p class="wp-card-text">Continuous, satellite-verified monitoring of reforestation, soil health, and emissions. On-chain auditable proof of impact for green bond issuers and climate lenders.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Conditional Donations</h4>
+            <p class="wp-card-text">Donor funds held in smart contracts, released only when satellite data confirms climate impact. Proven in the DIVA Donate pilot: USDT disbursed to drought-affected pastoralists.</p>
+          </div>
+        </div>
+
+        <h3 class="wp-subsection-title">The pipeline: report, validate, tokenize, monetize</h3>
+        <div class="wp-flow">
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">1</div>
+            <p class="wp-flow-text"><strong>Report.</strong> 30+ satellite data streams continuously monitor conditions. Ground truthers collect field data where needed.</p>
+          </div>
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">2</div>
+            <p class="wp-flow-text"><strong>Validate.</strong> Multiple independent providers across up to three layers verify data and reach consensus.</p>
+          </div>
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">3</div>
+            <p class="wp-flow-text"><strong>Tokenize.</strong> Validated ecological improvements become on-chain assets &mdash; ecocredits, carbon credits, impact credits &mdash; through partners like Regen Network and Thallo.</p>
+          </div>
+          <div class="wp-flow-step">
+            <div class="wp-flow-num">4</div>
+            <p class="wp-flow-text"><strong>Monetize.</strong> Land stewards sell credits, receive insurance payouts, or access climate finance.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 10. TRACTION ==================== -->
+      <section class="wp-section" id="traction">
+        <h2 class="wp-section-title"><span class="wp-section-number">10</span> Traction and Proof of Impact</h2>
+        <p class="wp-text">Shamba has been operating as a centralized oracle since 2021. These are documented outcomes from live deployments, not projections.</p>
+
+        <div class="wp-table-wrap">
+          <table class="wp-table">
+            <thead>
+              <tr><th>Metric</th><th>Result</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Farmers and land stewards reached</td><td>3,000+ across East Africa</td></tr>
+              <tr><td>Pastoralists receiving anticipatory cash transfers</td><td>262 across Laikipia and Kajiado counties</td></tr>
+              <tr><td>Cattle herders insured (northern Kenya)</td><td>150 via vegetation-triggered parametric insurance</td></tr>
+              <tr><td>USDT disbursed (drought pilot)</td><td>11,271 USDT from 20,235 USDT contributions</td></tr>
+              <tr><td>Transaction cost reduction</td><td>75%</td></tr>
+              <tr><td>Payment settlement time reduction</td><td>90%</td></tr>
+              <tr><td>Insurance cost reduction</td><td>Up to 40%</td></tr>
+              <tr><td>Satellite data sources</td><td>30+ databases (NASA, NOAA, ESA, JAXA)</td></tr>
+              <tr><td>Blockchain networks</td><td>6 (Arbitrum, Avalanche, Ethereum, Optimism, Polygon, XRPL EVM Sidechain)</td></tr>
+              <tr><td>Web3 ecosystem partners</td><td>~40</td></tr>
+              <tr><td>Grassroots community partners</td><td>120&ndash;130</td></tr>
+              <tr><td>Target addressable population</td><td>33 million smallholder farmers (Africa)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="wp-subsection-title">Live pilot programs</h3>
+        <div class="wp-card-grid">
+          <div class="wp-card">
+            <h4 class="wp-card-title">Pastoralist Drought Insurance (2023)</h4>
+            <p class="wp-card-text"><strong>Partners:</strong> Mercy Corps Ventures, Fortune Credit, DIVA Technologies. 262 pastoralists in Laikipia &amp; Kajiado received anticipatory cash transfers via Polygon smart contracts when satellite data confirmed pasture distress.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Cattle Herder Insurance (2022&ndash;2023)</h4>
+            <p class="wp-card-text"><strong>Partners:</strong> Fortune Credit, DIVA Protocol. 150 cattle herders insured via parametric model. Payments triggered automatically when NDVI vegetation fell below starvation-risk thresholds.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">MSME Rainfall Insurance (2025)</h4>
+            <p class="wp-card-text"><strong>Partners:</strong> Mercy Corps Ventures, BlockBima, Fortune Credit, RiskShield. Parametric rainfall insurance embedded in Fortune Credit&rsquo;s 5-day digital loans. Excess rainfall automatically reduces repayment.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">Gatanga Carbon Credits (2022&ndash;2023)</h4>
+            <p class="wp-card-text"><strong>Partners:</strong> YARD. Smallholder farmers in Gatanga enabled to issue carbon credits from organically grown avocado trees.</p>
+          </div>
+          <div class="wp-card">
+            <h4 class="wp-card-title">DIVA Donate (2022&ndash;2023)</h4>
+            <p class="wp-card-text"><strong>Partners:</strong> DIVA Protocol, Fortune Credit. Conditional donation mechanism where USDT funds in Polygon smart contracts were released when Shamba&rsquo;s oracle confirmed drought conditions.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== 11. ECOSYSTEM ==================== -->
+      <section class="wp-section" id="ecosystem">
+        <h2 class="wp-section-title"><span class="wp-section-number">11</span> Ecosystem and Partnerships</h2>
+
+        <h3 class="wp-subsection-title">11.1 Web3 infrastructure</h3>
+        <div class="wp-table-wrap">
+          <table class="wp-table">
+            <thead><tr><th>Partner</th><th>Relationship</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Chainlink</strong></td><td>Social Impact Grant recipient. First specialized geospatial oracle on Chainlink ecosystem.</td></tr>
+              <tr><td><strong>Filecoin / IPFS</strong></td><td>Decentralized storage for MRV data. Filecoin Base Camp accelerator participant.</td></tr>
+              <tr><td><strong>DIVA Protocol</strong></td><td>Smart contract infrastructure for conditional donations and anticipatory cash transfers.</td></tr>
+              <tr><td><strong>Regen Network</strong></td><td>Strategic partnership to design ecocredits for smallholder farmers.</td></tr>
+              <tr><td><strong>Ripple</strong></td><td>Scaling anticipatory cash transfers using Ripple&rsquo;s RLUSD stablecoin.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="wp-subsection-title">11.2 Climate finance &amp; development</h3>
+        <div class="wp-table-wrap">
+          <table class="wp-table">
+            <thead><tr><th>Partner</th><th>Relationship</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Mercy Corps Ventures</strong></td><td>Multiple pilot programs for anticipatory cash transfers and parametric insurance.</td></tr>
+              <tr><td><strong>Fortune Credit</strong></td><td>Kenyan microfinance institution issuing loans with embedded parametric insurance.</td></tr>
+              <tr><td><strong>BlockBima</strong></td><td>Web3 climate insurance platform operating parametric smart contracts.</td></tr>
+              <tr><td><strong>RiskShield</strong></td><td>Risk management partner for the Kenya MSME parametric insurance pilot.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="wp-subsection-title">11.3 Carbon markets</h3>
+        <div class="wp-table-wrap">
+          <table class="wp-table">
+            <thead><tr><th>Partner</th><th>Relationship</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Thallo</strong></td><td>Farm-based carbon credits on Thallo&rsquo;s blockchain marketplace.</td></tr>
+              <tr><td><strong>Open Forest Protocol</strong></td><td>Geospatial and remote sensing capabilities for forest MRV.</td></tr>
+              <tr><td><strong>dClimate</strong></td><td>Bringing sub-Saharan African climate data onto dClimate&rsquo;s marketplace.</td></tr>
+              <tr><td><strong>YARD</strong></td><td>NGO helping Gatanga communities issue carbon credits from fruit trees.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="wp-subsection-title">11.4 International expansion</h3>
+        <p class="wp-text"><strong>Atlantis DAO</strong> &mdash; MoU for pilot projects with farmers in rural India.</p>
+
+        <h3 class="wp-subsection-title">11.5 Investors and accelerators</h3>
+        <ul class="wp-list">
+          <li><strong>Outlier Ventures / Filecoin Base Camp</strong> &mdash; 12-week accelerator, selected from 300+ applicants</li>
+          <li><strong>Gitcoin Grants</strong> &mdash; Primary early-stage funding (GR13+, Alpha Round, DeSci Round)</li>
+        </ul>
+      </section>
+
+      <!-- ==================== 12. RECOGNITION ==================== -->
+      <section class="wp-section" id="recognition">
+        <h2 class="wp-section-title"><span class="wp-section-number">12</span> Recognition and Media</h2>
+
+        <h3 class="wp-subsection-title">12.1 Awards and recognition</h3>
+        <ul class="wp-list">
+          <li>CoinDesk Projects to Watch 2023</li>
+          <li>Chainlink Social Impact Grant recipient</li>
+          <li>MIT Solve &mdash; Climate, Ecosystems + Housing challenge</li>
+          <li>Gitcoin Impact Case Study</li>
+          <li>Outlier Ventures / Filecoin Base Camp &mdash; selected from 300+ applicants</li>
+          <li>BioCarbon dMRV Working Group &mdash; Kennedy Ng&rsquo;ang&rsquo;a is Co-Lead of Workstream 4</li>
+        </ul>
+
+        <h3 class="wp-subsection-title">12.2 Conference appearances</h3>
+        <div class="wp-table-wrap">
+          <table class="wp-table">
+            <thead><tr><th>Event</th><th>Date</th><th>Location</th><th>Role</th></tr></thead>
+            <tbody>
+              <tr><td>COP28, Hope House Dubai</td><td>Dec 2023</td><td>Dubai, UAE</td><td>Fireside chat on dMRV in Africa</td></tr>
+              <tr><td>Sankalp Africa Summit 2024</td><td>Feb 2024</td><td>Nairobi</td><td>Opening plenary, main stage (1,358 delegates)</td></tr>
+              <tr><td>Kenya Carbon Markets Conference</td><td>Mar 2024</td><td>Nairobi</td><td>Panel: Role of dMRV in carbon markets</td></tr>
+              <tr><td>Consensus 2023</td><td>Apr 2023</td><td>Austin, Texas</td><td>CoinDesk &ldquo;Projects to Watch 2023&rdquo;</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="wp-subsection-title">12.3 Selected media coverage</h3>
+        <div class="wp-table-wrap">
+          <table class="wp-table">
+            <thead><tr><th>Publication</th><th>Article</th></tr></thead>
+            <tbody>
+              <tr><td><strong>CoinDesk</strong></td><td><a href="https://www.coindesk.com/consensus-magazine/2023/04/17/shamba-network-ecological-data-oracle" target="_blank" rel="noopener">&ldquo;Shamba Network Sows the Future of Sustainable Agriculture in Africa&rdquo;</a></td></tr>
+              <tr><td><strong>Yahoo Finance</strong></td><td><a href="https://finance.yahoo.com/news/shamba-network-sows-future-sustainable-120859965.html" target="_blank" rel="noopener">Syndication of CoinDesk feature</a></td></tr>
+              <tr><td><strong>TechCabal</strong></td><td><a href="https://techcabal.com/2023/01/18/kennedy-ngangas-blockchain-of-trust-for-kenyas-smallholder-farmers/" target="_blank" rel="noopener">&ldquo;Kennedy Ng&rsquo;ang&rsquo;a&rsquo;s blockchain of trust&rdquo;</a></td></tr>
+              <tr><td><strong>InsurTech Digital</strong></td><td><a href="https://insurtechdigital.com/news/blockchain-insurance-tackles-kenyas-climate-credit-crisis" target="_blank" rel="noopener">&ldquo;Blockchain Insurance Tackles Kenya&rsquo;s Climate Credit Crisis&rdquo;</a></td></tr>
+              <tr><td><strong>AgFunder News</strong></td><td><a href="https://agfundernews.com/mercy-corps-ventures-pilots-the-blockchain-to-get-cash-transfers-to-communities-ahead-of-climate-shock" target="_blank" rel="noopener">&ldquo;Mercy Corps pilots blockchain cash transfers&rdquo;</a></td></tr>
+              <tr><td><strong>Blockchain Reporter</strong></td><td><a href="https://blockchainreporter.net/shamba-integrates-chainlink-oracle-technology/" target="_blank" rel="noopener">&ldquo;Shamba Integrates Chainlink Oracle Technology&rdquo;</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ==================== 13. ROADMAP ==================== -->
+      <section class="wp-section" id="roadmap">
+        <h2 class="wp-section-title"><span class="wp-section-number">13</span> Roadmap</h2>
+
+        <h3 class="wp-subsection-title">13.1 What has been built (2021&ndash;2025)</h3>
+        <div class="wp-timeline">
+          <div class="wp-timeline-item active">
+            <div class="wp-timeline-date">2020</div>
+            <div class="wp-timeline-title">Research</div>
+            <div class="wp-timeline-desc">Research begins on bringing geospatial data on-chain.</div>
+          </div>
+          <div class="wp-timeline-item active">
+            <div class="wp-timeline-date">2021</div>
+            <div class="wp-timeline-title">Founded</div>
+            <div class="wp-timeline-desc">Shamba Network founded. Chainlink grant received. Gitcoin grants funding secured.</div>
+          </div>
+          <div class="wp-timeline-item active">
+            <div class="wp-timeline-date">2022</div>
+            <div class="wp-timeline-title">Oracle Deployed</div>
+            <div class="wp-timeline-desc">Oracle on 5 EVM chains. Filecoin Base Camp accelerator. Partnerships with Regen Network, Thallo, dClimate, Open Forest Protocol. First pilot with 150 cattle herders.</div>
+          </div>
+          <div class="wp-timeline-item active">
+            <div class="wp-timeline-date">2023</div>
+            <div class="wp-timeline-title">Recognition &amp; Pilots</div>
+            <div class="wp-timeline-desc">CoinDesk Projects to Watch. 262 pastoralists pilot. Mercy Corps partnership. COP28. DIVA Donate.</div>
+          </div>
+          <div class="wp-timeline-item active">
+            <div class="wp-timeline-date">2024</div>
+            <div class="wp-timeline-title">Impact Published</div>
+            <div class="wp-timeline-desc">Kenya Carbon Markets Conference. Sankalp Africa Summit. 75% cost reduction, 90% faster settlement.</div>
+          </div>
+          <div class="wp-timeline-item active">
+            <div class="wp-timeline-date">2025</div>
+            <div class="wp-timeline-title">Scaling</div>
+            <div class="wp-timeline-desc">MSME parametric rainfall insurance with BlockBima. Ripple partnership. XRPL EVM Sidechain integration.</div>
+          </div>
+        </div>
+
+        <h3 class="wp-subsection-title">13.2 Decentralized network development (2026&ndash;2028)</h3>
+        <div class="wp-timeline">
+          <div class="wp-timeline-item active">
+            <div class="wp-timeline-date">Phase 1: Oct&ndash;Dec 2026</div>
+            <div class="wp-timeline-title">Design</div>
+            <div class="wp-timeline-desc">Token economics design (including delegated staking). Oracle Node SDK v1 (alpha Docker container). Mobile app design.</div>
+          </div>
+          <div class="wp-timeline-item">
+            <div class="wp-timeline-date">Phase 2: Jan&ndash;Mar 2027</div>
+            <div class="wp-timeline-title">Build</div>
+            <div class="wp-timeline-desc">Multi-layer aggregation contracts. Staking and delegation contracts. SDK beta. Mobile app alpha.</div>
+          </div>
+          <div class="wp-timeline-item">
+            <div class="wp-timeline-date">Phase 3: Apr&ndash;Jun 2027</div>
+            <div class="wp-timeline-title">Test</div>
+            <div class="wp-timeline-desc">Private testnet with 10&ndash;30 node operators. Initial ground truthing pilots. Internal security review.</div>
+          </div>
+          <div class="wp-timeline-item">
+            <div class="wp-timeline-date">Phase 4: Jul&ndash;Sep 2027</div>
+            <div class="wp-timeline-title">Harden</div>
+            <div class="wp-timeline-desc">Public testnet. External security audit. Credibility scoring system. Data validation corps.</div>
+          </div>
+          <div class="wp-timeline-item">
+            <div class="wp-timeline-date">Phase 5: Oct&ndash;Dec 2027</div>
+            <div class="wp-timeline-title">Prepare</div>
+            <div class="wp-timeline-desc">Mainnet launch preparation. Provider ranking dashboard. Final tokenomics calibration.</div>
+          </div>
+          <div class="wp-timeline-item">
+            <div class="wp-timeline-date">Phase 6: Jan&ndash;Mar 2028</div>
+            <div class="wp-timeline-title">Launch</div>
+            <div class="wp-timeline-desc">Mainnet launch. All three provider types operational. Initial pilot migration.</div>
+          </div>
+        </div>
+
+        <h3 class="wp-subsection-title">13.3 Post-launch vision</h3>
+        <ul class="wp-list">
+          <li>Scale to 100+ node operators, a global ground truthing network, and a data validation corps</li>
+          <li>Expand satellite coverage through community-contributed modules</li>
+          <li>Enable climate prediction markets on Shamba data feeds</li>
+          <li>Expand beyond East Africa to South Asia, Southeast Asia, and Latin America</li>
+          <li>Launch an impact credit marketplace for tokenized carbon, eco, and biodiversity credits</li>
+          <li>Integrate with major DeFi protocols for climate-linked financial products</li>
+        </ul>
+      </section>
+
+      <!-- ==================== 14. TEAM ==================== -->
+      <section class="wp-section" id="team">
+        <h2 class="wp-section-title"><span class="wp-section-number">14</span> Team</h2>
+
+        <div class="wp-team-card" style="margin-bottom: 2rem;">
+          <div class="wp-team-name">Kennedy Ng&rsquo;ang&rsquo;a</div>
+          <div class="wp-team-role">Founder &amp; CEO</div>
+          <p class="wp-team-bio">Geospatial engineer and climate technologist with over 17 years at the intersection of satellite data, agriculture, and development in Africa. Former geospatial research assistant at CIAT (International Centre for Tropical Agriculture), working directly with smallholder farmers across East Africa. Active in Web3 since 2017. Co-Lead of Workstream 4 (Ground Truthing &amp; Social Verification) in the BioCarbon Standard dMRV Working Group. Speaker at COP28, Sankalp Africa Summit, Kenya Carbon Markets Conference, and Consensus 2023.</p>
+          <div class="wp-team-links">
+            <a href="https://ke.linkedin.com/in/kennedynganga" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="https://x.com/kennedywnganga" target="_blank" rel="noopener">X / Twitter</a>
+          </div>
+        </div>
+
+        <div class="wp-team-card">
+          <div class="wp-team-name">The Shamba Team</div>
+          <div class="wp-team-role">Lean, globally distributed</div>
+          <p class="wp-team-bio">Shamba operates with a lean, globally distributed team that has sustained the project through four years on approximately $200,000 in total funding, primarily from Gitcoin grants and the Filecoin Base Camp accelerator. The team brings expertise in geospatial engineering, data science, smart contract development, and agricultural development. Supported by ~40 Web3 partners and 120&ndash;130 grassroots partners across East Africa.</p>
+        </div>
+      </section>
+
+      <!-- ==================== 15. OPEN SOURCE ==================== -->
+      <section class="wp-section" id="open-source">
+        <h2 class="wp-section-title"><span class="wp-section-number">15</span> Open Source Commitment</h2>
+
+        <h3 class="wp-subsection-title">15.1 What is open source</h3>
+        <p class="wp-text">Every component of the protocol will be released under recognized open-source licenses (GNU GPL, MIT, or BSD):</p>
+        <ul class="wp-list">
+          <li>Oracle Node SDK (Docker container, data modules, computation pipelines, node tools)</li>
+          <li>Shamba Mobile App (ground truthing data collection)</li>
+          <li>Multi-layer aggregation contracts (node, ground truth, validation, master)</li>
+          <li>Staking and delegated staking contracts</li>
+          <li>Credibility scoring system</li>
+          <li>Governance contracts</li>
+          <li>Protocol management contracts</li>
+          <li>All technical documentation, deployment guides, and specifications</li>
+        </ul>
+
+        <h3 class="wp-subsection-title">15.2 Why open source matters</h3>
+        <p class="wp-text">For a climate data oracle, open source isn&rsquo;t optional. It&rsquo;s a trust requirement. Anyone can inspect the computation pipeline. Bugs get found faster. The barrier to participation is knowledge, not permission. The protocol doesn&rsquo;t depend on one company&rsquo;s continued existence. And you can&rsquo;t democratize access to climate data through proprietary software.</p>
+
+        <h3 class="wp-subsection-title">15.3 Existing open source work</h3>
+        <ul class="wp-list">
+          <li><a href="https://github.com/shamba-network" target="_blank" rel="noopener">github.com/shamba-network</a></li>
+          <li><a href="https://github.com/shambadynamic/shamba-smartcontractkit" target="_blank" rel="noopener">Smart Contract Kit</a></li>
+          <li><a href="https://github.com/shambadynamic/Shamba-Diva-Middleware" target="_blank" rel="noopener">DIVA Middleware</a></li>
+          <li><a href="https://docs.shamba.app/en/latest/" target="_blank" rel="noopener">Documentation</a></li>
+          <li>Sustained through Gitcoin public goods funding from day one</li>
+        </ul>
+      </section>
+
+      <!-- ==================== 16. CONCLUSION ==================== -->
+      <section class="wp-section" id="conclusion">
+        <h2 class="wp-section-title"><span class="wp-section-number">16</span> Conclusion</h2>
+
+        <p class="wp-text">The world doesn&rsquo;t lack climate data. It lacks a way to make that data trustworthy, accessible, and economically useful at a scale that reaches the communities who need it most.</p>
+
+        <div class="wp-stat-grid">
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">30+</div>
+            <div class="wp-stat-label">Satellite Constellations</div>
+          </div>
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">$2.5B</div>
+            <div class="wp-stat-label">Annual Carbon Market</div>
+          </div>
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">1.5B</div>
+            <div class="wp-stat-label">Smallholder Farmers</div>
+          </div>
+          <div class="wp-stat-card">
+            <div class="wp-stat-value">97%</div>
+            <div class="wp-stat-label">African Farmers Uninsured</div>
+          </div>
+        </div>
+
+        <p class="wp-text">Shamba has spent four years proving that satellite data can power parametric insurance, carbon credits, and anticipatory aid in the real world. Pastoralists in Laikipia, cattle herders in northern Kenya, smallholder farmers in Gatanga &mdash; real people benefiting from climate data delivered on-chain. Transaction costs cut by 75%, settlement times by 90%, insurance costs by 40%.</p>
+
+        <p class="wp-text">Now the project is taking the next step: making this infrastructure decentralized, permissionless, and community-owned. A network where economic incentives keep data accurate. Where governance is in the hands of the people who build and use it. Where every line of code is open.</p>
+
+        <p class="wp-text"><strong>The oracle problem for climate data is not just a technical problem. It&rsquo;s a justice problem.</strong> The people most affected by climate change are the least served by climate data infrastructure. Shamba exists to change that &mdash; not through charity, but through a protocol that makes environmental stewardship economically rewarding.</p>
+
+        <p class="wp-text">If you believe climate data should be verifiable by anyone, controlled by no one, and accessible to everyone &mdash; <a href="community.html#get-started">join the network</a>.</p>
+
+        <div style="text-align: center; margin-top: 2rem;">
+          <a href="community.html#get-started" class="btn btn-primary">Join the Network</a>
+          <a href="contact.html" class="btn btn-secondary" style="margin-left: 1rem;">Contact Us</a>
+        </div>
+      </section>
+
+      <!-- ==================== 17. REFERENCES ==================== -->
+      <section class="wp-section" id="references">
+        <h2 class="wp-section-title"><span class="wp-section-number">17</span> References</h2>
+
+        <h3 class="wp-subsection-title">Academic and institutional</h3>
+        <ol class="wp-ref-list">
+          <li>Bank for International Settlements, &ldquo;The oracle problem and the future of DeFi,&rdquo; BIS Bulletin No. 76, 2022. <a href="https://www.bis.org/publ/bisbull76.pdf" target="_blank" rel="noopener">Link</a></li>
+          <li>Chainlink, &ldquo;The Blockchain Oracle Problem,&rdquo; Education Hub. <a href="https://chain.link/education-hub/oracle-problem" target="_blank" rel="noopener">Link</a></li>
+          <li>S&amp;P Global, &ldquo;Utility at a cost: Assessing the risks of blockchain oracles.&rdquo; <a href="https://www.spglobal.com/en/research-insights/special-reports/utility-at-a-cost-assessing-the-risks-of-blockchain-oracles" target="_blank" rel="noopener">Link</a></li>
+          <li>MIT Solve, &ldquo;Shamba Geospatial Data Oracle,&rdquo; Climate, Ecosystems + Housing Challenge. <a href="https://solve.mit.edu/challenges/climate-ecosystems-housing/solutions/61519" target="_blank" rel="noopener">Link</a></li>
+        </ol>
+
+        <h3 class="wp-subsection-title">Market data</h3>
+        <ol class="wp-ref-list" style="counter-reset: ref-counter 4;">
+          <li>Carbon Credits, &ldquo;Voluntary Carbon Market in 2026: Top Forecasts.&rdquo; <a href="https://carboncredits.com/voluntary-carbon-market-in-2026-top-forecasts-and-what-they-mean-for-investors/" target="_blank" rel="noopener">Link</a></li>
+          <li>Yale Climate Connections, &ldquo;Earth was hit by 55 billion-dollar weather disasters in 2025.&rdquo; <a href="https://yaleclimateconnections.org/2026/01/earth-was-hit-by-55-billion-dollar-weather-disasters-in-2025/" target="_blank" rel="noopener">Link</a></li>
+          <li>Yahoo Finance, &ldquo;Prediction Markets Grew 4X to $63.5B in 2025.&rdquo; <a href="https://finance.yahoo.com/news/prediction-markets-grew-4x-63-140103455.html" target="_blank" rel="noopener">Link</a></li>
+          <li>Stanford Social Innovation Review, &ldquo;Climate Resilience: Improving the Smallholder Insurance Market in Africa.&rdquo; <a href="https://ssir.org/articles/entry/building_a_stronger_foundation_for_climate_resilience" target="_blank" rel="noopener">Link</a></li>
+          <li>SCOR, &ldquo;Bridging the protection gap for African smallholder farmers.&rdquo; <a href="https://www.scor.com/en/expert-views/bridging-protection-gap-african-smallholder-farmers" target="_blank" rel="noopener">Link</a></li>
+          <li>BlockEden, &ldquo;The Rise of DePIN.&rdquo; <a href="https://blockeden.xyz/blog/2026/02/04/depin-19-billion-breakout-decentralized-infrastructure-enterprise-adoption/" target="_blank" rel="noopener">Link</a></li>
+        </ol>
+
+        <h3 class="wp-subsection-title">Shamba Network coverage</h3>
+        <ol class="wp-ref-list" style="counter-reset: ref-counter 10;">
+          <li>CoinDesk, &ldquo;Shamba Network Sows the Future of Sustainable Agriculture in Africa,&rdquo; April 2023. <a href="https://www.coindesk.com/consensus-magazine/2023/04/17/shamba-network-ecological-data-oracle" target="_blank" rel="noopener">Link</a></li>
+          <li>TechCabal, &ldquo;Kennedy Ng&rsquo;ang&rsquo;a&rsquo;s blockchain of trust for Kenya&rsquo;s smallholder farmers,&rdquo; January 2023. <a href="https://techcabal.com/2023/01/18/kennedy-ngangas-blockchain-of-trust-for-kenyas-smallholder-farmers/" target="_blank" rel="noopener">Link</a></li>
+          <li>Chainlink Blog, &ldquo;Shamba Receives Chainlink Grant to Bring Geospatial Climate Data On-Chain.&rdquo; <a href="https://blog.chain.link/shamba-receives-grant-to-bring-climate-data-on-chain/" target="_blank" rel="noopener">Link</a></li>
+          <li>Mercy Corps Ventures, &ldquo;Pilot Insights: Anticipatory Action,&rdquo; 2024. <a href="https://medium.com/mercy-corps-social-venture-fund/pilot-insights-anticipatory-action-leveraging-blockchain-for-drought-impact-pastoralists-in-the-e2d60d0f0f3d" target="_blank" rel="noopener">Link</a></li>
+          <li>InsurTech Digital, &ldquo;Blockchain Insurance Tackles Kenya&rsquo;s Climate Credit Crisis.&rdquo; <a href="https://insurtechdigital.com/news/blockchain-insurance-tackles-kenyas-climate-credit-crisis" target="_blank" rel="noopener">Link</a></li>
+          <li>Gitcoin Impact, &ldquo;Case Study: Shamba Network.&rdquo; <a href="https://impact.gitcoin.co/shamba-network" target="_blank" rel="noopener">Link</a></li>
+          <li>Outlier Ventures, &ldquo;Shamba Network Portfolio.&rdquo; <a href="https://outlierventures.io/portfolio/shamba-network/" target="_blank" rel="noopener">Link</a></li>
+          <li>Regen Network, &ldquo;Strategic ecocredits partnership with Shamba Network.&rdquo; <a href="https://regen-network.medium.com/regen-network-launches-strategic-eco-credits-partnership-with-shamba-network-89322192233f" target="_blank" rel="noopener">Link</a></li>
+        </ol>
+
+        <h3 class="wp-subsection-title">Shamba Network publications</h3>
+        <ol class="wp-ref-list" style="counter-reset: ref-counter 18;">
+          <li>Shamba Network, &ldquo;Shamba Integrates Chainlink Oracle Technology,&rdquo; Medium, November 2022. <a href="https://medium.com/@shambanetwork/shamba-integrates-chainlink-oracle-technology-to-power-parametric-insurance-for-smallholder-farmers-ae16a84b9be3" target="_blank" rel="noopener">Link</a></li>
+          <li>Shamba Network, &ldquo;Empowering Conditional Donations on the Blockchain,&rdquo; Medium, July 2023. <a href="https://medium.com/@shambanetwork/empowering-conditional-donations-on-the-blockchain-insights-from-the-diva-donate-pilot-693142ae0a8a" target="_blank" rel="noopener">Link</a></li>
+          <li>Shamba Network, &ldquo;Partners with Mercy Corps Ventures, Fortune Credit, and Diva Technologies,&rdquo; Medium, October 2023. <a href="https://medium.com/@shambanetwork/shamba-network-partners-with-mercy-corps-ventures-fortune-credit-and-diva-technologies-to-boost-865710f303ce" target="_blank" rel="noopener">Link</a></li>
+        </ol>
+
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--glass-border);">
+          <p class="wp-text" style="font-style: italic; font-size: 0.9rem;">This whitepaper is a living document and will be updated as the protocol evolves.</p>
+          <p class="wp-text" style="font-size: 0.9rem;">For the latest information, visit <a href="https://shamba.network">shamba.network</a>. All code is available at <a href="https://github.com/shamba-network" target="_blank" rel="noopener">github.com/shamba-network</a>.</p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo"><img src="images/shamba-logo.png" alt="Shamba Network" width="180" height="52"></a>
+          <p>The decentralized climate data oracle for a regenerative economy.</p>
+          <div class="footer-social">
+            <a href="https://twitter.com/shambanetwork" target="_blank" rel="noopener" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="https://ke.linkedin.com/company/shambanetwork" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://github.com/shamba-network" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://medium.com/@shambanetwork" target="_blank" rel="noopener" aria-label="Medium">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Protocol</h4>
+          <div class="footer-links">
+            <a href="technology.html">Technology</a>
+            <a href="tokenomics.html">Tokenomics</a>
+            <a href="whitepaper.html">Whitepaper</a>
+            <a href="community.html">Community</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Resources</h4>
+          <div class="footer-links">
+            <a href="https://docs.shamba.app" target="_blank" rel="noopener">Documentation</a>
+            <a href="https://github.com/shamba-network" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://medium.com/@shambanetwork" target="_blank" rel="noopener">Blog</a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-heading">Company</h4>
+          <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="impact.html">Impact</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Shamba Network. All rights reserved.</span>
+        <span>Built for the planet.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script>
+    // Scrollspy for TOC
+    (function() {
+      const tocLinks = document.querySelectorAll('.wp-toc-link');
+      const sections = document.querySelectorAll('.wp-section');
+      const tocToggle = document.getElementById('toc-toggle');
+      const toc = document.getElementById('wp-toc');
+
+      // Mobile TOC toggle
+      if (tocToggle) {
+        tocToggle.addEventListener('click', function() {
+          this.classList.toggle('open');
+          toc.classList.toggle('mobile-open');
+        });
+      }
+
+      // Close mobile TOC on link click
+      tocLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 900) {
+            toc.classList.remove('mobile-open');
+            tocToggle.classList.remove('open');
+          }
+        });
+      });
+
+      // Scrollspy
+      function updateActiveLink() {
+        var scrollPos = window.scrollY + 140;
+        var current = '';
+        sections.forEach(function(section) {
+          if (section.offsetTop <= scrollPos) {
+            current = section.getAttribute('id');
+          }
+        });
+        tocLinks.forEach(function(link) {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+          }
+        });
+      }
+
+      var scrollTimer;
+      window.addEventListener('scroll', function() {
+        if (scrollTimer) cancelAnimationFrame(scrollTimer);
+        scrollTimer = requestAnimationFrame(updateActiveLink);
+      });
+      updateActiveLink();
+    })();
+  </script>
+</body>
+</html>
