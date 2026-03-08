@@ -501,7 +501,7 @@ Partners: DIVA Protocol, Fortune Credit. A blockchain-based conditional donation
 
 | Partner | Relationship |
 |---|---|
-| [Chainlink](https://www.chainlinkecosystem.com/ecosystem/shamba) | Social Impact Grant recipient. First specialized geospatial oracle on the Chainlink ecosystem. [Grant announcement](https://blog.chain.link/shamba-receives-grant-to-bring-climate-data-on-chain/) |
+| [Chainlink](https://www.chainlinkecosystem.com/ecosystem/shamba) | Social Impact Grant recipient. [Grant announcement](https://blog.chain.link/shamba-receives-grant-to-bring-climate-data-on-chain/) |
 | [Filecoin / IPFS](https://outlierventures.io/portfolio/shamba-network/) | Decentralized storage for MRV data and oracle metadata. Filecoin Base Camp accelerator participant. |
 | [DIVA Protocol](https://www.divaprotocol.io/posts/diva-conditional-donations) | Smart contract infrastructure for conditional donations and anticipatory cash transfers on Polygon. |
 | [Regen Network](https://regen-network.medium.com/regen-network-launches-strategic-eco-credits-partnership-with-shamba-network-89322192233f) | Strategic partnership to design ecocredits for smallholder farmers, targeting 33 million African farmers. |
