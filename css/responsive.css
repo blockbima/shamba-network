@@ -96,39 +96,12 @@
     min-height: auto;
   }
 
-  .hero-split {
-    flex-direction: column-reverse;
-    gap: 2.5rem;
-  }
-
-  .hero-content {
-    text-align: center;
-  }
-
-  .hero .btn-group {
-    justify-content: center;
-  }
-
-  .hero-logo-ring {
-    width: 200px;
-    height: 200px;
-  }
-
-  .hero-logo {
-    width: 110px;
-  }
-
   .hero h1 {
     font-size: 2.2rem;
   }
 
   .hero p {
     font-size: 1rem;
-    margin: 0 auto 2rem;
-  }
-
-  .hero-stats {
-    justify-content: center;
   }
 
   .btn-group {
@@ -227,15 +200,6 @@
     flex-direction: column;
     gap: 1rem;
     align-items: center;
-  }
-
-  .hero-logo-ring {
-    width: 170px;
-    height: 170px;
-  }
-
-  .hero-logo {
-    width: 95px;
   }
 
   h2 { font-size: 1.5rem; }
