@@ -92,6 +92,14 @@ img {
   display: block;
 }
 
+img.partner-logo,
+img.trust-logo-img,
+img.blockchain-logo,
+img.data-source-logo {
+  height: auto;
+  display: inline-block;
+}
+
 ul, ol {
   list-style: none;
 }
@@ -1530,6 +1538,16 @@ p {
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Ensure sections with logos are always visible even without JS */
+.partner-grid.reveal,
+.grid-6.reveal,
+.trust-bar.reveal,
+#blockchains.reveal,
+#data-sources.reveal {
+  opacity: 1;
+  transform: none;
 }
 
 .reveal-left {
