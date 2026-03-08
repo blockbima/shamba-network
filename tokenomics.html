@@ -25,7 +25,7 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
-        <img src="images/shamba-logo.png" alt="Shamba Network" width="140" height="40">
+        <img src="images/shamba-logo.png" alt="Shamba Network" width="180" height="52">
       </a>
       <div class="nav-links">
         <a href="technology.html">Technology</a>
@@ -53,7 +53,7 @@
     <div class="page-header-content">
       <span class="section-label">Protocol Economics</span>
       <h1>Token<span class="text-gradient">omics</span></h1>
-      <p>The native token that powers the Shamba Network -- aligning economic incentives so that accurate climate data is rewarded and manipulation is punished.</p>
+      <p>The token economics behind the network. Accurate data gets rewarded. Bad data gets slashed. Everyone has skin in the game.</p>
     </div>
   </header>
 
@@ -111,7 +111,7 @@
             </svg>
           </div>
           <h4>Staking</h4>
-          <p style="font-size: 0.95rem;">Node operators stake tokens to participate in the network. The staking requirement is deliberately set low to maximize accessibility in emerging markets -- security comes from slashing penalties, not high entry costs.</p>
+          <p style="font-size: 0.95rem;">All data providers (node operators, ground truthers, data validators) stake tokens to participate. Requirements vary by project. Community members can delegate tokens to providers, sharing rewards and risks.</p>
         </div>
 
         <!-- Rewards -->
@@ -123,7 +123,7 @@
             </svg>
           </div>
           <h4>Rewards</h4>
-          <p style="font-size: 0.95rem;">Node operators earn tokens for accurately fulfilling data requests. Early operators earn higher reward rates to bootstrap the network. Value flows to contributors, not speculators.</p>
+          <p style="font-size: 0.95rem;">Data providers earn tokens for accurately fulfilling requests. Delegated stakers earn a proportional share. Early participants earn higher rates to bootstrap the network.</p>
         </div>
 
         <!-- Slashing -->
@@ -134,7 +134,7 @@
             </svg>
           </div>
           <h4>Slashing</h4>
-          <p style="font-size: 0.95rem;">Bad actors lose their staked tokens when providing inaccurate or manipulated data. The slashing penalty always exceeds the potential gain from manipulation.</p>
+          <p style="font-size: 0.95rem;">Bad actors lose their staked tokens — and their delegators' stakes are slashed proportionally. The penalty always exceeds the potential gain from manipulation.</p>
         </div>
 
         <!-- Governance -->
@@ -147,7 +147,7 @@
             </svg>
           </div>
           <h4>Governance</h4>
-          <p style="font-size: 0.95rem;">Token holders vote on protocol decisions: data sources, slashing parameters, reward rates, aggregation thresholds, and protocol upgrades.</p>
+          <p style="font-size: 0.95rem;">Token holders vote on protocol decisions: data sources, slashing parameters, reward rates, staking requirements, aggregation thresholds, and protocol upgrades.</p>
         </div>
       </div>
     </div>
@@ -160,8 +160,8 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Staking</span>
-        <h2 id="staking-heading">Security Through Economic Incentives</h2>
-        <p>The Shamba staking model prioritizes accessibility over exclusivity. Security does not come from high barriers to entry -- it comes from making honest behavior profitable and dishonest behavior costly.</p>
+        <h2 id="staking-heading">Staking, Delegation &amp; Credibility</h2>
+        <p>All three data provider types (node operators, ground truthers, data validators) must stake tokens to participate. Community members can delegate tokens to providers they trust, sharing in rewards and penalties. A multi-factor credibility scoring system ranks providers by accuracy, uptime, and tenure.</p>
       </div>
 
       <div class="grid-3 reveal">
@@ -175,9 +175,9 @@
               <line x1="22" y1="11" x2="16" y2="11"/>
             </svg>
           </div>
-          <h4>Low Barrier Entry</h4>
-          <p style="font-size: 0.95rem; margin: 0 auto;">Modest stake requirement designed to be accessible in emerging markets. Students, developers, and NGOs can all participate with a standard laptop and decent internet.</p>
-          <span class="badge badge-coming-soon" style="margin-top: 1rem;">Exact Amount TBD</span>
+          <h4>Variable Staking + Delegation</h4>
+          <p style="font-size: 0.95rem; margin: 0 auto;">Staking requirements vary by project. Providers who can't meet higher requirements on their own can be backed by community members through delegated staking — shared rewards and shared risks.</p>
+          <span class="badge badge-coming-soon" style="margin-top: 1rem;">Exact Amounts TBD</span>
         </div>
 
         <!-- Slashing Penalties -->
@@ -190,7 +190,7 @@
             </svg>
           </div>
           <h4>Slashing Penalties</h4>
-          <p style="font-size: 0.95rem; margin: 0 auto;">Nodes that report outlier values -- data that deviates from consensus -- have their staked tokens slashed. The penalty always exceeds the potential gain from manipulation.</p>
+          <p style="font-size: 0.95rem; margin: 0 auto;">Providers that submit bad data have their staked tokens slashed — and their delegators' stakes are slashed proportionally. This ensures delegators only back providers they trust.</p>
           <span class="badge badge-coming-soon" style="margin-top: 1rem;">Parameters TBD</span>
         </div>
 
@@ -201,30 +201,31 @@
               <polyline points="20 6 9 17 4 12"/>
             </svg>
           </div>
-          <h4>Honest = Profitable</h4>
-          <p style="font-size: 0.95rem; margin: 0 auto;">The protocol ensures it is always more profitable to operate honestly than to attempt manipulation. Accurate reporters earn rewards; bad actors lose their stake.</p>
+          <h4>Credibility Scoring</h4>
+          <p style="font-size: 0.95rem; margin: 0 auto;">Every provider has a public credibility score based on successful requests, accuracy rate, uptime, and tenure. Higher scores attract more delegated stake, creating a virtuous cycle of trust.</p>
         </div>
       </div>
 
       <!-- Visual: How Staking Works -->
       <div class="glass-card reveal" style="margin-top: 3rem; padding: 3rem;">
-        <h4 style="text-align: center; margin-bottom: 2rem;">How Staking Creates Security</h4>
+        <h4 style="text-align: center; margin-bottom: 2rem;">How Staking &amp; Delegation Works</h4>
         <div class="arch-diagram" style="padding: 0;">
-          <div class="arch-layer">
-            <div class="arch-node arch-node-purple">Node Operator Stakes Tokens</div>
+          <div class="arch-layer" style="gap: 2rem;">
+            <div class="arch-node arch-node-purple">Provider Stakes Tokens</div>
+            <div class="arch-node arch-node-green">Community Members Delegate Tokens</div>
           </div>
           <div class="arch-arrow">&#8595;</div>
           <div class="arch-layer">
-            <div class="arch-node arch-node-purple">Receives Data Request</div>
+            <div class="arch-node arch-node-purple">Provider Randomly Selected for Data Request</div>
           </div>
           <div class="arch-arrow">&#8595;</div>
           <div class="arch-layer">
-            <div class="arch-node arch-node-purple">Fetches Satellite Data Independently</div>
+            <div class="arch-node arch-node-purple">Independently Sources &amp; Submits Data</div>
           </div>
           <div class="arch-arrow">&#8595;</div>
           <div class="arch-layer" style="gap: 2rem;">
-            <div class="arch-node arch-node-green">Accurate Report<br><small style="opacity: 0.7;">Earns Rewards</small></div>
-            <div class="arch-node" style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); color: #FCA5A5; padding: 1rem 1.5rem; border-radius: 12px; text-align: center; font-size: 0.9rem; font-weight: 500; min-width: 140px;">Inaccurate Report<br><small style="opacity: 0.7;">Stake Slashed</small></div>
+            <div class="arch-node arch-node-green">Accurate Report<br><small style="opacity: 0.7;">Provider + Delegators Earn Rewards</small></div>
+            <div class="arch-node" style="background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); color: #FCA5A5; padding: 1rem 1.5rem; border-radius: 12px; text-align: center; font-size: 0.9rem; font-weight: 500; min-width: 140px;">Inaccurate Report<br><small style="opacity: 0.7;">Provider + Delegators Slashed</small></div>
           </div>
         </div>
       </div>
@@ -238,8 +239,8 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-label">Rewards</span>
-        <h2 id="rewards-heading">Earn by Contributing Accurate Data</h2>
-        <p>Tokens are earned through contribution, not through purchase or airdrop -- ensuring that value accrues to those who build and maintain the climate data infrastructure.</p>
+        <h2 id="rewards-heading">Earn by Contributing or Delegating</h2>
+        <p>Tokens are earned through data provision and delegation, not through purchase or airdrop. Providers earn by serving accurate data; delegators earn by backing them.</p>
       </div>
 
       <div class="grid-2 reveal">
@@ -654,13 +655,13 @@
     <div class="container">
       <div class="cta-grid reveal">
         <div class="glass-card cta-card">
-          <h3>Run a Node</h3>
-          <p>The open-source Oracle Node SDK runs on a standard laptop. Contribute to climate data integrity and earn rewards.</p>
-          <a href="technology.html" class="btn btn-primary">Learn About the Technology</a>
+          <h3>Become a Provider</h3>
+          <p>Deploy a cloud node, collect field data, or validate as a domain expert. Three ways to earn in the Shamba Network.</p>
+          <a href="community.html#provider-waitlist" class="btn btn-primary">Join the Waitlist</a>
         </div>
         <div class="glass-card cta-card">
-          <h3>Join the Community</h3>
-          <p>Stay updated on tokenomics design, governance discussions, and testnet launch.</p>
+          <h3>Stake &amp; Earn</h3>
+          <p>Back trusted data providers with your tokens. Earn a share of their rewards while securing the network's data integrity.</p>
           <a href="community.html" class="btn btn-green">Get Involved</a>
         </div>
       </div>
@@ -675,7 +676,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo">
-            <img src="images/shamba-logo.png" alt="Shamba Network" width="120" height="35">
+            <img src="images/shamba-logo.png" alt="Shamba Network" width="160" height="46">
           </a>
           <p>The decentralized climate data oracle for a regenerative economy.</p>
           <div class="footer-social">

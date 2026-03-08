@@ -20,7 +20,7 @@
   <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <a href="index.html" class="nav-logo">
-        <img src="images/shamba-logo.png" alt="Shamba Network" width="140" height="40">
+        <img src="images/shamba-logo.png" alt="Shamba Network" width="180" height="52">
       </a>
       <div class="nav-links">
         <a href="technology.html" class="active">Technology</a>
@@ -46,7 +46,7 @@
     <div class="page-header-content">
       <span class="section-label">Technology Deep Dive</span>
       <h1><span class="text-gradient">Technology</span></h1>
-      <p>A decentralized oracle architecture that makes Earth observation data verifiable, tamper-proof, and accessible on-chain &mdash; powered by an open-source Node SDK anyone can run.</p>
+      <p>An open-source oracle architecture that gets Earth observation data on-chain. Verifiable. Tamper-proof. Powered by a Node SDK anyone can deploy.</p>
     </div>
   </header>
 
@@ -56,48 +56,58 @@
       <div class="section-header">
         <span class="section-label">System Architecture</span>
         <h2>How the <span class="text-gradient">Oracle Network</span> Works</h2>
-        <p>A four-layer architecture that takes raw satellite imagery from space agencies and delivers consensus-verified climate data to smart contracts.</p>
+        <p>Three provider types, three aggregation pipelines, one master contract. Here's how climate data goes from satellite to smart contract.</p>
       </div>
 
       <div class="glass-card arch-diagram">
-        <!-- Layer 1: Satellite Data -->
+        <!-- Layer 1: Data Sources -->
         <div class="arch-layer" style="flex-wrap: wrap;">
           <div class="arch-node arch-node-green">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:4px;"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            <br>Satellite Data Layer
+            <br>Data Sources
           </div>
         </div>
-        <p class="text-center text-muted" style="font-size:0.85rem;margin:0 auto 0.5rem;">NASA (MODIS, Landsat) &middot; ESA (Copernicus Sentinel) &middot; NOAA (Atmospheric) &middot; JAXA (Earth Observation)</p>
+        <p class="text-center text-muted" style="font-size:0.85rem;margin:0 auto 0.5rem;">Satellite: NASA &middot; ESA &middot; NOAA &middot; JAXA &nbsp;|&nbsp; Field: Shamba Mobile App &nbsp;|&nbsp; Expert: Domain Specialists</p>
 
         <div class="arch-arrow">&#8595;</div>
 
-        <!-- Layer 2: Oracle Nodes -->
+        <!-- Layer 2: Three Provider Types -->
         <div class="arch-layer" style="flex-wrap: wrap;">
-          <div class="arch-node arch-node-purple">Node 1 (SDK)</div>
-          <div class="arch-node arch-node-purple">Node 2 (SDK)</div>
-          <div class="arch-node arch-node-purple">Node 3 (SDK)</div>
-          <div class="arch-node arch-node-purple" style="border-style:dashed;">Node n (SDK)</div>
+          <div class="arch-node arch-node-purple">Node Operators<br><small style="opacity:0.7">Cloud SDK</small></div>
+          <div class="arch-node arch-node-green">Ground Truthers<br><small style="opacity:0.7">Mobile App</small></div>
+          <div class="arch-node arch-node-purple">Data Validators<br><small style="opacity:0.7">Expert Review</small></div>
         </div>
-        <p class="text-center text-muted" style="font-size:0.85rem;margin:0 auto 0.5rem;">Independent fetch &rarr; process &rarr; cryptographic sign &rarr; report</p>
+        <p class="text-center text-muted" style="font-size:0.85rem;margin:0 auto 0.5rem;">All require staking &middot; Support delegated staking &middot; Randomly selected per request</p>
 
         <div class="arch-arrow">&#8595;</div>
 
-        <!-- Layer 3: Smart Contracts -->
+        <!-- Layer 3: Multi-Layer Aggregation -->
         <div class="arch-layer" style="flex-wrap: wrap;">
-          <div class="arch-node arch-node-green">Aggregation Contract</div>
-          <div class="arch-node arch-node-green">Staking &amp; Slashing</div>
-          <div class="arch-node arch-node-green">Governance Contract</div>
+          <div class="arch-node arch-node-green">Node Aggregation</div>
+          <div class="arch-node arch-node-green">Ground Truth Aggr.</div>
+          <div class="arch-node arch-node-green">Validation Aggr.</div>
         </div>
-        <p class="text-center text-muted" style="font-size:0.85rem;margin:0 auto 0.5rem;">Consensus verification &middot; Reward accurate nodes &middot; Slash bad actors</p>
+        <p class="text-center text-muted" style="font-size:0.85rem;margin:0 auto 0.5rem;">Separate pipelines per provider type &rarr; Master Aggregation Contract</p>
 
         <div class="arch-arrow">&#8595;</div>
 
-        <!-- Layer 4: Applications -->
+        <!-- Layer 4: Smart Contracts -->
         <div class="arch-layer" style="flex-wrap: wrap;">
-          <div class="arch-node arch-node-purple">Parametric Insurance</div>
-          <div class="arch-node arch-node-purple">Carbon Credits</div>
-          <div class="arch-node arch-node-purple">Prediction Markets</div>
-          <div class="arch-node arch-node-purple">Green Bonds</div>
+          <div class="arch-node arch-node-purple">Master Aggregation</div>
+          <div class="arch-node arch-node-purple">Staking &amp; Delegation</div>
+          <div class="arch-node arch-node-purple">Credibility Scoring</div>
+          <div class="arch-node arch-node-purple">Governance</div>
+        </div>
+        <p class="text-center text-muted" style="font-size:0.85rem;margin:0 auto 0.5rem;">Final verification &middot; Reward providers + delegators &middot; Slash bad actors &middot; Provider rankings</p>
+
+        <div class="arch-arrow">&#8595;</div>
+
+        <!-- Layer 5: Applications -->
+        <div class="arch-layer" style="flex-wrap: wrap;">
+          <div class="arch-node arch-node-green">Parametric Insurance</div>
+          <div class="arch-node arch-node-green">Carbon Credits</div>
+          <div class="arch-node arch-node-green">Prediction Markets</div>
+          <div class="arch-node arch-node-green">Green Bonds</div>
         </div>
       </div>
     </div>
@@ -109,7 +119,7 @@
       <div class="section-header">
         <span class="section-label">Oracle Node SDK</span>
         <h2>Open-Source <span class="text-gradient">Data Pipeline</span></h2>
-        <p>Everything needed to operate a Shamba node &mdash; install and run within minutes on any standard laptop. No specialized hardware required.</p>
+        <p>An optimized Docker container deployed to the cloud. Everything needed to operate a Shamba node &mdash; deploy within minutes on any supported cloud platform. On-demand execution keeps costs low.</p>
       </div>
 
       <div class="grid-3">
@@ -223,31 +233,31 @@
   <section class="section reveal" id="consensus">
     <div class="container">
       <div class="section-header">
-        <span class="section-label">Consensus Protocol</span>
+        <span class="section-label">Multi-Layer Consensus</span>
         <h2>Consensus &amp; <span class="text-gradient">Aggregation</span></h2>
-        <p>No single node controls the outcome. Manipulation requires compromising multiple independent nodes simultaneously &mdash; making attacks economically irrational.</p>
+        <p>No single provider controls the outcome. Separate aggregation pipelines for each data type converge in a master contract. Manipulation becomes economically irrational.</p>
       </div>
 
       <div class="steps" style="grid-template-columns: repeat(4, 1fr);">
         <div class="step">
           <div class="step-number">1</div>
           <h4>Random Selection</h4>
-          <p>The protocol randomly selects <strong>n</strong> nodes from the pool of staked operators. No node knows in advance if it will be chosen, preventing coordinated collusion.</p>
+          <p>The protocol randomly selects <strong>n</strong> node operators, <strong>m</strong> ground truthers, and <strong>k</strong> data validators from pools of staked providers. No one knows in advance if they will be chosen.</p>
         </div>
         <div class="step">
           <div class="step-number">2</div>
-          <h4>Independent Computation</h4>
-          <p>Each selected node independently fetches the same public satellite data (NASA, ESA, NOAA, JAXA), runs the open-source pipeline, and cryptographically signs the result.</p>
+          <h4>Independent Data Collection</h4>
+          <p>Node operators fetch satellite data. Ground truthers collect field measurements via the Shamba mobile app. Data validators review edge cases. Each works independently.</p>
         </div>
         <div class="step">
           <div class="step-number">3</div>
-          <h4>Aggregation &amp; Consensus</h4>
-          <p>The aggregation smart contract collects all signed reports. Results must agree within a defined tolerance. The consensus value is delivered to the requesting application.</p>
+          <h4>Multi-Layer Aggregation</h4>
+          <p>Three aggregation services (node, ground truth, validation) process submissions independently. A master aggregation contract combines all layers into the final verified result.</p>
         </div>
         <div class="step">
           <div class="step-number">4</div>
           <h4>Rewards &amp; Slashing</h4>
-          <p>Nodes that reported within consensus earn token rewards. Outlier reporters &mdash; whether through error or malice &mdash; have their staked tokens slashed. Accuracy pays; manipulation costs.</p>
+          <p>Accurate providers and their delegators earn token rewards. Providers who submit bad data are slashed &mdash; along with their delegators. Credibility scores track long-term performance.</p>
         </div>
       </div>
 
@@ -267,8 +277,8 @@
             <p style="font-size:0.95rem;">Small floating-point variations are normal and expected. Large deviations are clearly identifiable, making the consensus threshold straightforward to calibrate.</p>
           </div>
           <div>
-            <h5 style="color:var(--green-accent);margin-bottom:0.5rem;">Ground-Truth Validation</h5>
-            <p style="font-size:0.95rem;">Satellite observations can be cross-validated against ground measurements from field sensors and drone data, adding an extra verification layer.</p>
+            <h5 style="color:var(--green-accent);margin-bottom:0.5rem;">Multi-Layer Ground Truth</h5>
+            <p style="font-size:0.95rem;">Satellite observations are cross-validated by ground truthers collecting field data and domain experts providing human review &mdash; three independent verification layers.</p>
           </div>
         </div>
       </div>
@@ -446,15 +456,15 @@
             </tr>
             <tr>
               <td><strong>Node Software</strong></td>
-              <td>Open-source SDK (GNU GPL / MIT / BSD licensed)</td>
+              <td>Open-source Docker container (GNU GPL / MIT / BSD licensed)</td>
             </tr>
             <tr>
-              <td><strong>Hardware Requirement</strong></td>
-              <td>Standard laptop or desktop with broadband internet</td>
+              <td><strong>Deployment</strong></td>
+              <td>Cloud-deployed Docker container, optimized for on-demand execution</td>
             </tr>
             <tr>
-              <td><strong>Operating Systems</strong></td>
-              <td>Linux, macOS, Windows</td>
+              <td><strong>Data Provider Types</strong></td>
+              <td>Node operators (satellite), ground truthers (field/mobile), data validators (expert review)</td>
             </tr>
             <tr>
               <td><strong>Satellite Data Sources</strong></td>
@@ -486,11 +496,11 @@
             </tr>
             <tr>
               <td><strong>Consensus Model</strong></td>
-              <td>n-of-N random node selection with aggregation and tolerance-based consensus</td>
+              <td>Multi-layer aggregation: node, ground truth, and validation services &rarr; master aggregation contract</td>
             </tr>
             <tr>
               <td><strong>Security Model</strong></td>
-              <td>Staking + slashing (honest operation more profitable than manipulation)</td>
+              <td>Staking + delegated staking + slashing + multi-factor credibility scoring</td>
             </tr>
             <tr>
               <td><strong>Governance</strong></td>
@@ -511,9 +521,9 @@
     <div class="container">
       <div class="cta-grid">
         <div class="glass-card cta-card">
-          <h3>Run a Node</h3>
-          <p>Download the open-source SDK and join the network. Earn rewards by providing accurate climate data &mdash; all from a standard laptop.</p>
-          <a href="community.html#get-started" class="btn btn-primary">Get Started</a>
+          <h3>Join the Network</h3>
+          <p>Deploy a cloud node, collect field data, or apply your domain expertise. Three ways to provide data and earn rewards.</p>
+          <a href="community.html#provider-waitlist" class="btn btn-primary">Join the Waitlist</a>
         </div>
         <div class="glass-card cta-card">
           <h3>Build on Shamba</h3>
@@ -530,7 +540,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo">
-            <img src="images/shamba-logo.png" alt="Shamba Network" width="140" height="40">
+            <img src="images/shamba-logo.png" alt="Shamba Network" width="180" height="52">
           </a>
           <p>The decentralized climate data oracle. Verifiable Earth observation data for a regenerative economy.</p>
           <div class="footer-social">
