@@ -96,12 +96,31 @@
     min-height: 90vh;
   }
 
+  .hero-split {
+    flex-direction: column-reverse;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero .btn-group {
+    justify-content: center;
+  }
+
+  .hero-logo {
+    width: 220px;
+  }
+
   .hero h1 {
     font-size: 2.2rem;
   }
 
   .hero p {
     font-size: 1.05rem;
+    margin: 0 auto 2.5rem;
   }
 
   .btn-group {
